@@ -130,11 +130,15 @@ textarea {
 	background-color: #F0F0F2;
 }
 #video-main{
-	max-width:809px;
-	height:446px;
-	width:100%;
-	border: #fff 6px solid;
+	max-width:821px;
+	width:98%;
 	position:relative;
+	height:446px;
+	margin: 0 auto;
+}
+#video-inner{
+	border: #fff 0.4em solid;
+	height:100%;
 	background-color:gray;
 }
 #logo-share{
@@ -142,6 +146,18 @@ textarea {
 }
 .my-text-field{
 	border: 1px solid black;
+}
+
+
+
+/*ask hoy media queries */
+@media only screen and (max-width: 480px) {
+	
+	#video-inner{
+		border: #fff 0.2em solid;
+		height:100%;
+		background-color:gray;
+	}
 }
 
 
@@ -207,11 +223,14 @@ textarea {
 	.span_1_of_2 {
 		width: 100%; 
 	}
+	
+	
+	#video-inner{
+		border: #fff 0.2em solid;
+		height:100%;
+		background-color:gray;
+	}
 }
-
-
-
-
 
 
 
@@ -328,6 +347,7 @@ textarea {
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
+
 }
 
 @media print,
