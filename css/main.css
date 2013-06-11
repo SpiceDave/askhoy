@@ -16,7 +16,11 @@ input,
 select,
 textarea {
     color: #222;
-	background-color:#333;
+	background-color:transparent;
+	border:0;
+	width:96%;
+	height:46px;
+	padding-left:10px;
 }
 
 body {
@@ -142,6 +146,15 @@ textarea {
 }
 #logo-share{
 	height:136px
+}
+#logo{
+	float:left;
+}
+#share{
+	float:right;
+}
+#results_button{
+	float:right;
 }
 .my-text-field{
 	border: 1px solid black;

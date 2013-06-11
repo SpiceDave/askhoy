@@ -24,7 +24,10 @@
         <!-- Add your site or application content here -->
         <div id-"wrapper">
             <div id="header" class="content-layer" align="center" >
-                <div id="logo-share" class="content-inner">Logo and share</div>
+                <div id="logo-share" class="content-inner">
+                	<div id="logo"><img src="img/logo.gif" alt="SiS logo" height="100" width="200" /></div>
+                    <div id="share"><img src="img/share.gif" alt="SHARE" height="50" width="200" /></div>
+                </div>
                 <div id="video-main" class="content-inner">
                 	<div id="video-inner">
                 	  <p>Video player</p>
@@ -42,10 +45,10 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">name</div>
+                        	<div id="user_name" class="my-text-field"><input id="name-txt" type="text" name="name" value="What's your name?"></div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field">email</div>
+                        	<div id="user_email" class="my-text-field"><input id="email-txt" type="text" name="email" value="What's your email address?"></div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,22 @@
                     </div>
                 </div>
                 <div style="clear:both"></div>
+                
+                
+                <div class="content-inner" style="max-width:740px;">
+                	<div class="section group">
+                        <div class="col span_1_of_2">
+                        	<div id="user_name" class="my-text-field">opt in</div>
+                        </div>
+                        <div class="col span_1_of_2">
+                        	<div id="results_button" class="my-text-field"><a href="javascript: get_results()"><img src="img/results_btn.gif" height="49" width="222" alt="Get Results" /></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                
             </div>
+            
             
             
             <div id="footer"class="content-layer" align="center">
@@ -89,10 +107,35 @@
           <script src="js/main.js"></script>
           <script>
 		  jQuery(document).ready(function(){
-			  //stub to save record
-			save_record();
-			
+			  jQuery('#name-txt').click(function(){
+				  //if user clicks when the message is up
+				  if(jQuery(this).val() == 'What\'s your name?')
+				  {
+					  //clear box
+				 	 jQuery(this).val('');
+				  }
+				  //if user clicks in other box before entering data, add message back
+				  if(jQuery('#email-txt').val() == '')
+				  {
+					  jQuery('#email-txt').val('What\'s your email address?');
+				  }
+			  });
+			  //repeat for other box
+			  jQuery('#email-txt').click(function(){
+				  //if user clicks when the message is up
+				  if(jQuery(this).val() == 'What\'s your email address?')
+				  {
+					  //clear box
+				 	 jQuery(this).val('');
+				  }
+	
+				  if(jQuery('#name-txt').val() == '')
+				  {
+					  jQuery('#name-txt').val('What\'s your name?');
+				  }
+			  });	
 		  });
+		  
           </script>
           
     </body>

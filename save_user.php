@@ -26,7 +26,7 @@
 		{
 		  die('Error: ' . mysqli_error($con));
 		}
-		echo "1 record added";
+		echo $name.', below your personal nutrition guide, including more information on the products...';
 	}
 
 	
