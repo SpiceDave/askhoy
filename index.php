@@ -39,7 +39,7 @@
                 <div class="content-inner">
                 	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for your sport, just enter your details below.</div>   
                 </div>
-                <div class="content-inner" style="max-width:740px; padding:20px">
+                <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
                         	<div id="user_name" class="my-text-field">name</div>
@@ -51,13 +51,25 @@
                 </div>
                 <div style="clear:both"></div>
                 
-                <div class="content-inner" style="max-width:740px; padding:20px">
+                <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">name</div>
+                        	<div id="user_name" class="my-text-field">male female</div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field">email</div>
+                        	<div id="user_email" class="my-text-field">what's your sport?</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                
+                <div class="content-inner" style="max-width:740px;">
+                	<div class="section group">
+                        <div class="col span_1_of_2">
+                        	<div id="user_name" class="my-text-field">Training hours</div>
+                        </div>
+                        <div class="col span_1_of_2">
+                        	<div id="user_email" class="my-text-field">What would you like to know about?</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +88,11 @@
           <script src="js/plugins.js"></script>
           <script src="js/main.js"></script>
           <script>
-		  	
+		  jQuery(document).ready(function(){
+			  //stub to save record
+			save_record();
+			
+		  });
           </script>
           
     </body>
