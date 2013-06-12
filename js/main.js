@@ -1,5 +1,6 @@
 //stuff to do when page loads
 jQuery(document).ready(function(){
+	
   jQuery('#name-txt').click(function(){
 	  //if user clicks when the message is up
 	  if(jQuery(this).val() == 'What\'s your name?')

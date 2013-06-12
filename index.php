@@ -23,23 +23,27 @@
 
         <!-- Add your site or application content here -->
         <div id-"wrapper">
-            <div id="header" class="content-layer" align="center" >
-                <div id="logo-share" class="content-inner">
-                	<div id="logo"><img src="img/logo.gif" alt="SiS logo" height="100" width="200" /></div>
-                    <div id="share"><img src="img/share.gif" alt="SHARE" height="50" width="200" /></div>
+            <div id="header" class="content-layer" align="center" style="position:relative">
+            	
+                <div id="logo-share" class="content-inner" >
+                	<div id="black-bit"></div>
+                	<div id="logo"></div>
+                    <div id="share"></div>
                 </div>
                 <div id="video-main" class="content-inner">
                 	<div id="video-inner">
                 	  <p>Video player</p>
                 	  <p>&nbsp;</p>
                 	</div>
+                    <div class="video-shadow" style="clear:both"><img src="img/page/drop-shadow.png" alt="" /></div>
                 </div>
+                
             </div>
             <div id="trim" class="content-layer" align="center" >
                 <div class="content-inner">yellow strip</div>
             </div>
             <div id="app" class="content-layer" align="center" >
-                <div class="content-inner">
+                <div class="content-inner" style="padding:10px">
                 	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for your sport, just enter your details below.</div>   
                 </div>
                 <div class="content-inner" style="max-width:740px;">
@@ -57,10 +61,21 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">male female</div>
+                        	<div id="user_gender">
+                            	<div class="gender-line">Are you Male?</div>
+                                <div class="check-box">
+                                	<div class="dot" id="male"></div>
+                                </div>
+                                <div class="gender-line">Or Female?</div>
+                                <div class="check-box">
+                                	<div class="dot" id="female" style="display:none"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field">what's your sport?</div>
+                        	<div id="user_sport" class="my-text-field">
+                              	<div id="ddSport" class="dd-container" ></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,10 +84,14 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">Training hours</div>
+                        	<div id="user_duration" class="my-text-field">
+                              	<div id="ddDuration" class="dd-container"></div>
+                            </div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field">What would you like to know about?</div>
+                        	<div id="user_topic" class="my-text-field">
+                              	<div id="ddTopic" class="dd-container"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,10 +101,15 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">opt in</div>
+                        	<div id="user_name" class="my-text-field">
+                            	<div id="optin">
+                                	<div class="opt"></div>
+                                </div>
+                                <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
+                            </div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="results_button" class="my-text-field"><a href="javascript: get_results()"><img src="img/results_btn.gif" height="49" width="222" alt="Get Results" /></a></div>
+                        	<div id="results_button" class="my-text-field"><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
                         </div>
                     </div>
                 </div>
@@ -136,6 +160,47 @@
 			  });	
 		  });
 		  
+		  //do the custom drop down boxes
+		  var ddDuration = [
+				{ text: "<strong>2-3</strong> hours", value: 1 },
+				{ text: "<strong>3-4</strong> hours", value: 2 },
+				{ text: "<strong>4-5</strong> hours", value: 3 },
+				{ text: "<strong>5-6</strong> hours", value: 4 },
+				{ text: "<strong>6-7</strong> hours", value: 5 },
+				{ text: "<strong>7+</strong> hours", value: 6 }
+			];
+			
+			$('#ddDuration').ddslick({
+				data: ddDuration,
+				selectText: "How long do you train each week?"
+			});
+			
+		var ddSport = [
+				{ text: "Cycling", value: 1 },
+				{ text: "Running", value: 2 },
+				{ text: "Triathlon", value: 3 }
+			];
+			
+			$('#ddSport').ddslick({
+				data: ddSport,
+				selectText: "What's your sport?"
+			});
+			
+		var ddTopic = [
+				{ text: "Preparation", value: 1 },
+				{ text: "Performance", value: 2 },
+				{ text: "Running", value: 3 },
+				{ text: "Preparation, Perfomance and Recovery", value: 4 }
+			];
+			
+			$('#ddTopic').ddslick({
+				data: ddTopic,
+				selectText: "What would you like to know about?"
+			});
+			
+			//gender checkboxes
+			jQuery('.check-box').click(function(){jQuery('.dot').toggle()});
+			jQuery('#optin').click(function(){jQuery('.opt').toggle()});
           </script>
           
     </body>
