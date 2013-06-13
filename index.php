@@ -44,15 +44,15 @@
             </div>
             <div id="app" class="content-layer" align="center" >
                 <div class="content-inner" style="padding:10px">
-                	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for your sport, just enter your details below.</div>   
+                	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
                 </div>
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field"><input id="name-txt" type="text" name="name" value="What's your name?"></div>
+                        	<div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?"></div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field"><input id="email-txt" type="text" name="email" value="What's your email address?"></div>
+                        	<div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?"></div>
                         </div>
                     </div>
                 </div>
@@ -103,28 +103,48 @@
                         <div class="col span_1_of_2">
                         	<div id="user_name" class="my-text-field">
                             	<div id="optin">
-                                	<div class="opt"></div>
+                                	<div class="opt" style="display:none"></div>
                                 </div>
                                 <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
                             </div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="results_button" class="my-text-field"><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
+                        	<div id="results_button" class=""><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
                         </div>
                     </div>
+                    <div class="signature"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /></div>
                 </div>
                 <div style="clear:both"></div>
                 
             </div>
             
             
-            
-            <div id="footer"class="content-layer" align="center">
-                <div class="content-inner">footer</div>
-            </div>
-        </div>
+            <footer>
+                <div id="footer"class="content-layer" align="center">
+                    <div class="content-inner">
+                        <div class="footer-logo"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></div>
+                        <div class="tandc">
+                        	<a href="#"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="27"/></a>
+                            <img src="img/page/slash.gif" alt="" height="19" width="28" />
+                            <a href=""><img src="img/page/p-policy.gif" alt="Privacy Policy" height="19" width="60" /></a>
+                            <img src="img/page/slash.gif" alt="" height="19" width="28" />
+                            <a href="#"><img src="img/page/c-services.gif" alt="Customer Services" height="19" width="84" /></a>
+                            <div id="br"><br /></div>
+                            <img id="slash" src="img/page/slash.gif" alt="" height="19" width="28" />
+                            <a href="#"><img src="img/page/p-range.gif" alt="Product Range" height="19" width="67" /></a>
+                            <img src="img/page/slash.gif" alt="" height="19" width="28" />
+                            <a href="#"><img src="img/page/contact-us.gif" alt="contact use" height="19" width="49" /></a>
+                            <img src="img/page/slash.gif" alt="" height="19" width="28" />
+                            <a href="#"><img src="img/page/copyright.gif" alt="©Copyright SiS 2013" height="19" width="94" /></a>
 
-        <p>
+                         </div>
+                        <div class="bottom-line">Endurance nutrition. Without compromise.</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
           <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
           <script src="js/plugins.js"></script>

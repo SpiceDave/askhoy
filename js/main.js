@@ -237,3 +237,7 @@ function check_email(address){
 		return true;
 	}
 }
+
+$(window).resize(function() {
+  console.log(document.width);
+});
