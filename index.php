@@ -49,10 +49,10 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?"></div>
+                        	<div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?" maxlength="50"></div>
                         </div>
                         <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?"></div>
+                        	<div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?" maxlength="255"></div>
                         </div>
                     </div>
                 </div>
@@ -101,9 +101,9 @@
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
                         <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field">
+                        	<div id="user_opt" class="my-text-field">
                             	<div id="optin">
-                                	<div class="opt" style="display:none"></div>
+                                	<div class="opt" id="opt-dot"></div>
                                 </div>
                                 <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
                             </div>
@@ -149,79 +149,10 @@
           <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
           <script src="js/plugins.js"></script>
           <script src="js/main.js"></script>
-          <script>
-		  jQuery(document).ready(function(){
-			  jQuery('#name-txt').click(function(){
-				  //if user clicks when the message is up
-				  if(jQuery(this).val() == 'What\'s your name?')
-				  {
-					  //clear box
-				 	 jQuery(this).val('');
-				  }
-				  //if user clicks in other box before entering data, add message back
-				  if(jQuery('#email-txt').val() == '')
-				  {
-					  jQuery('#email-txt').val('What\'s your email address?');
-				  }
-			  });
-			  //repeat for other box
-			  jQuery('#email-txt').click(function(){
-				  //if user clicks when the message is up
-				  if(jQuery(this).val() == 'What\'s your email address?')
-				  {
-					  //clear box
-				 	 jQuery(this).val('');
-				  }
-	
-				  if(jQuery('#name-txt').val() == '')
-				  {
-					  jQuery('#name-txt').val('What\'s your name?');
-				  }
-			  });	
-		  });
+      
 		  
-		  //do the custom drop down boxes
-		  var ddDuration = [
-				{ text: "<strong>2-3</strong> hours", value: 1 },
-				{ text: "<strong>3-4</strong> hours", value: 2 },
-				{ text: "<strong>4-5</strong> hours", value: 3 },
-				{ text: "<strong>5-6</strong> hours", value: 4 },
-				{ text: "<strong>6-7</strong> hours", value: 5 },
-				{ text: "<strong>7+</strong> hours", value: 6 }
-			];
-			
-			$('#ddDuration').ddslick({
-				data: ddDuration,
-				selectText: "How long do you train each week?"
-			});
-			
-		var ddSport = [
-				{ text: "Cycling", value: 1 },
-				{ text: "Running", value: 2 },
-				{ text: "Triathlon", value: 3 }
-			];
-			
-			$('#ddSport').ddslick({
-				data: ddSport,
-				selectText: "What's your sport?"
-			});
-			
-		var ddTopic = [
-				{ text: "Preparation", value: 1 },
-				{ text: "Performance", value: 2 },
-				{ text: "Running", value: 3 },
-				{ text: "Preparation, Perfomance and Recovery", value: 4 }
-			];
-			
-			$('#ddTopic').ddslick({
-				data: ddTopic,
-				selectText: "What would you like to know about?"
-			});
-			
-			//gender checkboxes
-			jQuery('.check-box').click(function(){jQuery('.dot').toggle()});
-			jQuery('#optin').click(function(){jQuery('.opt').toggle()});
-          </script>
+		
+         
           
     </body>
 </html>

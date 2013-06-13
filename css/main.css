@@ -221,6 +221,7 @@ textarea {
 	float:left;
 	width:10%;
 }
+#opt-dot{display:none}
 .opt-txt{
 	float:left;
 	width:90%;

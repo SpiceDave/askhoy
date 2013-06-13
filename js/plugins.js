@@ -77,6 +77,7 @@
     function i(a) {
         a.find(".dd-options").slideUp(50);
         a.find(".dd-pointer").removeClass("dd-pointer-up").removeClass("dd-pointer-up")
+		a.find('.dd-selected').css({'color':'#787474'});
     }
 
     function j(a) {
