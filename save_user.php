@@ -26,7 +26,7 @@
 		{
 		  die('Error: ' . mysqli_error($con));
 		}
-		echo $name.', below your personal nutrition guide, including more information on the products...';
+		echo $name.', below is your personal nutrition guide, including more information on the products I’ve just mentioned.|'.mysqli_insert_id($con);
 	}
 
 	

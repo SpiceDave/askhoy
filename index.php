@@ -55,7 +55,7 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
   <param name="isUI" value="true" />
   <param name="dynamicStreaming" value="true" />
   
-  <!--<param name="@videoPlayer" value="2478511886001" />-->
+  <param name="@videoPlayer" value="2478511886001" />
   <param name="includeAPI" value="true" />   
   <param name="templateLoadHandler" value="myTemplateLoaded" />   
   <param name="templateReadyHandler" value="onTemplateReady" /> 
@@ -81,6 +81,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
             <div id="app" class="content-layer" align="center" >
                 <div class="content-inner" style="padding:10px">
                 	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
+                    <div id="sub-message"></div>
                 </div>
                 <div class="content-inner" style="max-width:740px;">
                 	<div class="section group">
@@ -141,7 +142,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                             	<div id="optin">
                                 	<div class="opt" id="opt-dot"></div>
                                 </div>
-                                <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
+                                <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
                             </div>
                         </div>
                         <div class="col span_1_of_2">
@@ -187,23 +188,9 @@ the rest of the HTML is processed and the page load is complete, remove the line
           <script src="js/plugins.js"></script>
           <script src="js/main.js"></script>
           <script>
-			var player;  
-			var modVP; 
-			/*var nextVideo = 0; 
-			var videos = new Array(1754276221001,1756137891001,1754276206001,1754276205001,1754234236001);*/    
-			function myTemplateLoaded(experienceID) {  
-				player = brightcove.api.getExperience(experienceID);   
-				modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
-			}   
-			function onTemplateReady(evt) {   
-				modVP.loadVideoByReferenceID(4);  
-				modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
-				modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete); 
-			}
-			function onMediaComplete(evt) {    
-				 modVP.loadVideoByReferenceID(4);  
-			}
-			//loadVideoByReferenceID()
+			
+			
+			
 		  </script>
       
 		  

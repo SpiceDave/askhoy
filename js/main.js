@@ -39,7 +39,7 @@ jQuery(document).ready(function(){
 	var ddTopic = [
 			{ text: "Preparation", value: 1 },
 			{ text: "Performance", value: 2 },
-			{ text: "Running", value: 3 },
+			{ text: "Recovery", value: 3 },
 			{ text: "Preparation, Perfomance and Recovery", value: 4 }
 		];
 		
@@ -68,7 +68,7 @@ jQuery(document).ready(function(){
 	});
 	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 	setHeaderHeight();
-	
+	//also set the header height to compensate...
 	function setHeaderHeight(){
 		if(jQuery('#video-main').width() < 900)
 	  	{
@@ -78,7 +78,7 @@ jQuery(document).ready(function(){
 	  	{
 		    jQuery('#header').height(546);
 	  	}
-	}
+	} 
 
 
 	/******************************************************************************************
@@ -122,17 +122,24 @@ jQuery(document).ready(function(){
 * function to collect the results of the 'form' and write to database via php script
 *
 *******************************************************************************************/
-
+var name;
+var email;
+var gender;
+var sport;
+var hours;
+var duration;
+var topic;
+var optin;
 //save the user record
 function get_results(){
 	/* save the record */
 	
 	//get the user values
-	var name = jQuery('#name-txt').val();
-	var email = jQuery('#email-txt').val();
+	name = jQuery('#name-txt').val();
+	email = jQuery('#email-txt').val();
 	
 	//get the gender according to visiblity of elements
-	var gender;
+	gender;
 	if(jQuery('#female').is(':visible'))
 	{
 		gender = 'female';
@@ -143,7 +150,7 @@ function get_results(){
 	}
 	
 	//get the user's sport selection
-	var sport = jQuery('#user_sport').find('.dd-selected-text').text();
+	sport = jQuery('#user_sport').find('.dd-selected-text').text();
 	if(sport.length < 1)
 	{
 		//if user not selected
@@ -152,7 +159,7 @@ function get_results(){
 	}
 
 	//get the user's duration selection
-	var hours  = jQuery('#user_duration').find('.dd-selected-text').text();
+	hours  = jQuery('#user_duration').find('.dd-selected-text').text();
 	if(hours.length < 1)
 	{
 		//if user not selected
@@ -161,7 +168,7 @@ function get_results(){
 	}
 	
 	//get the user's topic selection
-	var topic = jQuery('#user_topic').find('.dd-selected-text').text();
+	topic = jQuery('#user_topic').find('.dd-selected-text').text();
 	if(topic.length < 1)
 	{
 		//if user not selected
@@ -170,7 +177,7 @@ function get_results(){
 	}
 	
 	//get the user's opt in selection
-	var optin = 'YES';
+	optin = 'YES';
 	if(jQuery('#opt-dot').is(':visible'))
 	{
 		optin = 'yes';
@@ -186,7 +193,14 @@ function get_results(){
 		$.post("save_user.php", { NAME: name, EMAIL: email, GENDER: gender, SPORT:sport, HOURS:hours, TOPIC: topic, OPTIN: optin})
 		.done(function(data) {
 			 jQuery('.message').text(data);
-			 tailor_results(sport, duration, topic);
+			 
+			 //simplify hours results to long or short duration
+			 duration = 'Long';
+			 if(hours == '2-3 hours' || hours == '3-4 hours' || hours == '4-5 hours')
+			 { 
+			 	duration = 'Short';
+			 }
+			 tailor_results();
 			 //need to get the id of the user once written, return in from server and write to hidden field or cookie
 		});
 	}
@@ -198,165 +212,189 @@ function get_results(){
 
 /******************************************************************************************
 *
-* function to determine what is shown to user based upon his or her selection
+* function to determine what is shown to user based upon his or her selection.
+*
+* this function also is used to take the user through again from the breadcrumb
 *
 *******************************************************************************************/
 	
-function tailor_results(sport, duration, topic){
-	if(sport == 'cycling')
+function tailor_results(){
+	
+	//set the correct background header image
+	if(topic == 'Preparation')
 	{
-		//do the cycling stuff
-		if(duration == 'short')
+		jQuery('#header').css({'background-image':'url(../img/page/preparation-hdr.jpg)'});
+	}
+	else if(topic == 'Performance')
+	{
+		jQuery('#header').css({'background-image':'url(../img/page/performance-hdr.jpg)'});
+	}
+	else if(topic == 'Recovery')
+	{
+		jQuery('#header').css({'background-image':'url(../img/page/recovery-hdr.jpg)'});
+	}
+	else
+	{
+		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
+	}
+	
+	//set the submessage text
+	jQuery('#sub-message').html('<strong>You selected: </strong>' + sport + ', ' + hours + ' pw, ' + topic )
+		
+	if(sport == 'Cycling')
+	{
+		//do the Cycling stuff
+		if(duration == 'Short')
 		{
-			//do short duration stuff
-			if(topic == 'preparation')
+			//do Short duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(1);
+				//Preparation
+				modVP.loadVideoByReferenceID(1);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(2);
+				//Performance
+				modVP.loadVideoByReferenceID(2);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(3);
+				//Recovery
+				modVP.loadVideoByReferenceID(3);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(4);
+				modVP.loadVideoByReferenceID(4);
 			}
 		}
-		else if(duration == 'long')
+		else if(duration == 'Long')
 		{
-			//do long duration stuff
-			if(topic == 'preparation')
+			//do Long duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(5);
+				//Preparation
+				modVP.loadVideoByReferenceID(5);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(2);
+				//Performance
+				modVP.loadVideoByReferenceID(2);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(6);
+				//Recovery
+				modVP.loadVideoByReferenceID(6);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(7);
+				modVP.loadVideoByReferenceID(7);
 			}
 		}
 		
 	}
-	else if(sport == 'running')
+	else if(sport == 'Running')
 	{
 		//do the running stuff
-		if(duration == 'short')
+		if(duration == 'Short')
 		{
-			//do short duration stuff
-			if(topic == 'preparation')
+			//do Short duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(8);
+				//Preparation
+				modVP.loadVideoByReferenceID(8);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(9);
+				//Performance
+				modVP.loadVideoByReferenceID(9);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(10);
+				//Recovery
+				modVP.loadVideoByReferenceID(10);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(11);
+				modVP.loadVideoByReferenceID(11);
 			}
 		}
-		else if(duration == 'long')
+		else if(duration == 'Long')
 		{
-			//do long duration stuff
-			if(topic == 'preparation')
+			//do Long duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(12);
+				//Preparation
+				modVP.loadVideoByReferenceID(12);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(9);
+				//Performance
+				modVP.loadVideoByReferenceID(9);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(13);
+				//Recovery
+				modVP.loadVideoByReferenceID(13);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(14);
+				modVP.loadVideoByReferenceID(14);
 			}
 		}
 	}
-	else if(sport == 'triathalon')
+	else if(sport == 'Triathlon')
 	{
 		//do the tri stuff
-		if(duration == 'short')
+		if(duration == 'Short')
 		{
-			//do short duration stuff
-			if(topic == 'preparation')
+			//do Short duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(15);
+				//Preparation
+				modVP.loadVideoByReferenceID(15);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(16);
+				//Performance
+				modVP.loadVideoByReferenceID(16);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(17);
+				//Recovery
+				modVP.loadVideoByReferenceID(17);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(18);
+				modVP.loadVideoByReferenceID(18);
 			}
 		}
-		else if(duration == 'long')
+		else if(duration == 'Long')
 		{
-			//do long duration stuff
-			if(topic == 'preparation')
+			//do Long duration stuff
+			if(topic == 'Preparation')
 			{
-				//preparation
-				showVideo(19);
+				//Preparation
+				modVP.loadVideoByReferenceID(19);
 			}
-			else if(topic == 'performance')
+			else if(topic == 'Performance')
 			{
-				//performance
-				showVideo(16);
+				//Performance
+				modVP.loadVideoByReferenceID(16);
 			}
-			else if(topic == 'recovery')
+			else if(topic == 'Recovery')
 			{
-				//recovery
-				showVideo(20);
+				//Recovery
+				modVP.loadVideoByReferenceID(20);
 			}
-			else if(topic == 'all-three')
+			else if(topic == 'Preparation, Perfomance and Recovery')
 			{
 				//all three
-				showVideo(21);
+				modVP.loadVideoByReferenceID(21);
 			}
 		}
 	}
@@ -385,4 +423,32 @@ function check_email(address){
 		return true;
 	}
 }
+
+
+/******************************************************************************************
+*
+* code for videoplayer
+*
+*******************************************************************************************/
+
+var player;  
+var modVP; 
+/*var nextVideo = 0; 
+var videos = new Array(1754276221001,1756137891001,1754276206001,1754276205001,1754234236001);*/    
+function myTemplateLoaded(experienceID) {  
+	player = brightcove.api.getExperience(experienceID);   
+	modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
+}   
+
+jQuery('#trim').click(function(){
+	modVP.loadVideoByReferenceID(2);
+	/*modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
+	modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete);*/
+});
+/*function onMediaBegin(evt) {    
+	 alert('video beginning');  
+}
+function onMediaComplete(evt) {    
+	 alert('video complete');  
+}*/
 

@@ -141,6 +141,10 @@ textarea {
 	max-width:460px;
 	font-weight:bold;
 }
+#sub-message{
+	color:#000;
+	font-size:0.9em;
+}
 #app{
 	border-top:#e7e7e7 1px solid;
 	background-image:url(../img/page/app-bg.png);
