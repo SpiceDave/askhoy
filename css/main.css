@@ -133,7 +133,7 @@ textarea {
 	border-top:#adadab 1px solid;
 	background-image:url(../img/page/trim-bg.png);
 	background-color: #F7E600;
-	height:120px;
+	height:140px;
 }
 .message{
 	font-size:1.2em;
@@ -152,15 +152,15 @@ textarea {
 	background-color: #F0F0F2;
 }
 #video-main{
-	max-width:922px;
+	max-width:940px;
 	width:98%;
 	position:relative;
-	height:509px;
-	margin: 0 auto;
+	max-height:523px;
 }
 #video-inner{
 	border: #fff 0.4em solid;
 	height:100%;
+	line-height:0;
 	background-color:gray;
 }
 .video-shadow img{
@@ -255,8 +255,7 @@ textarea {
 
 /*ask hoy media queries */
 @media only screen and (max-width: 60em) {
-	
-	
+
 
 }
 @media only screen and (max-width: 610px) {
@@ -266,6 +265,7 @@ textarea {
 	#slash{
 		display:none;
 	}
+	
 	
 }
 

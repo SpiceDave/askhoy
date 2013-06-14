@@ -32,15 +32,51 @@
                 </div>
                 <div id="video-main" class="content-inner">
                 	<div id="video-inner">
-                	  <p>Video player</p>
-                	  <p>&nbsp;</p>
+<!-- Start of Brightcove Player -->
+
+<div style="display:none">
+
+</div>
+
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C 
+found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+
+<object id="myExperience2478511886001" class="BrightcoveExperience">
+  <param name="bgcolor" value="#FFFFFF" />
+  <param name="width" value="100%" />
+  <param name="height" value="100%" />
+  <param name="playerID" value="2478394970001" />
+  <param name="playerKey" value="AQ~~,AAACOMxQr4E~,fH8UUWnkLZ4XJ_7s0MSCvF3ncOf-V7B_" />
+  <param name="isVid" value="true" />
+  <param name="isUI" value="true" />
+  <param name="dynamicStreaming" value="true" />
+  
+  <!--<param name="@videoPlayer" value="2478511886001" />-->
+  <param name="includeAPI" value="true" />   
+  <param name="templateLoadHandler" value="myTemplateLoaded" />   
+  <param name="templateReadyHandler" value="onTemplateReady" /> 
+</object>
+
+<!-- 
+This script tag will cause the Brightcove Players defined above it to be created as soon
+as the line is read by the browser. If you wish to have the player instantiated only after
+the rest of the HTML is processed and the page load is complete, remove the line.
+-->
+<script type="text/javascript">brightcove.createExperiences();</script>
+
+<!-- End of Brightcove Player -->
+  
                 	</div>
                     <div class="video-shadow" style="clear:both"><img src="img/page/drop-shadow.png" alt="" /></div>
                 </div>
                 
             </div>
             <div id="trim" class="content-layer" align="center" >
-                <div class="content-inner">yellow strip</div>
+                <div class="content-inner"></div>
             </div>
             <div id="app" class="content-layer" align="center" >
                 <div class="content-inner" style="padding:10px">
@@ -120,7 +156,7 @@
             
             
             <footer>
-                <div id="footer"class="content-layer" align="center">
+                <div id="footer" class="content-layer" align="center">
                     <div class="content-inner">
                         <div class="footer-logo"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></div>
                         <div class="tandc">
@@ -141,14 +177,34 @@
                         <div class="bottom-line">Endurance nutrition. Without compromise.</div>
                     </div>
                 </div>
+                </footer>
             </div>
-        </footer>
+        
 
 
           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
           <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
           <script src="js/plugins.js"></script>
           <script src="js/main.js"></script>
+          <script>
+			var player;  
+			var modVP; 
+			/*var nextVideo = 0; 
+			var videos = new Array(1754276221001,1756137891001,1754276206001,1754276205001,1754234236001);*/    
+			function myTemplateLoaded(experienceID) {  
+				player = brightcove.api.getExperience(experienceID);   
+				modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
+			}   
+			function onTemplateReady(evt) {   
+				modVP.loadVideoByReferenceID(4);  
+				modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
+				modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete); 
+			}
+			function onMediaComplete(evt) {    
+				 modVP.loadVideoByReferenceID(4);  
+			}
+			//loadVideoByReferenceID()
+		  </script>
       
 		  
 		

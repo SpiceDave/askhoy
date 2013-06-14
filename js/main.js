@@ -57,7 +57,29 @@ jQuery(document).ready(function(){
 	jQuery('.check-box').click(function(){jQuery('.dot').toggle()});
 	jQuery('#optin').click(function(){jQuery('.opt').toggle()});
 	
+	/******************************************************************************************
+	*
+	* function to set the height of the video player
+	*
+	*******************************************************************************************/
+	$(window).resize(function() {
+	  $('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
+	  setHeaderHeight();
+	});
+	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
+	setHeaderHeight();
 	
+	function setHeaderHeight(){
+		if(jQuery('#video-main').width() < 900)
+	  	{
+		  	jQuery('#header').height( $('#video-main').height() +20 );
+	  	}
+	  	else
+	  	{
+		    jQuery('#header').height(546);
+	  	}
+	}
+
 
 	/******************************************************************************************
 	*
@@ -363,3 +385,4 @@ function check_email(address){
 		return true;
 	}
 }
+
