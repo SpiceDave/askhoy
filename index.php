@@ -23,12 +23,15 @@
 
         <!-- Add your site or application content here -->
         <div id-"wrapper">
-            <div id="header" class="content-layer" align="center" style="position:relative">
+            <div id="header" class="content-layer" style="position:relative">
             	
                 <div id="logo-share" class="content-inner" >
                 	<div id="black-bit"></div>
                 	<div id="logo"></div>
-                    <div id="share"></div>
+                    <div id="share" style="position:relative">
+                    	<div id="tw-top" class="twitter-share"></div>
+                        <div id="fb-top" class="facebook-share"></div>
+                    </div>
                 </div>
                 <div id="video-main" class="content-inner">
                 	<div id="video-inner">
@@ -75,85 +78,94 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 </div>
                 
             </div>
-            <div id="trim" class="content-layer" align="center" >
-                <div class="content-inner"></div>
-            </div>
-            <div id="app" class="content-layer" align="center" >
-                <div class="content-inner" style="padding:10px">
-                	<div class="message">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
-                    <div id="sub-message"></div>
+            <div id="trim" class="content-layer" ></div>
+            <div id="app" class="content-layer">
+                <div class="content-inner" style="padding:10px; text-align:center">
+                	<div class="message" style="margin: 0 auto">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
+                    <div id="sub-message" style="margin: 0 auto"></div>
                 </div>
-                <div class="content-inner" style="max-width:740px;">
-                	<div class="section group">
-                        <div class="col span_1_of_2">
-                        	<div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?" maxlength="50"></div>
-                        </div>
-                        <div class="col span_1_of_2">
-                        	<div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?" maxlength="255"></div>
+                <!-- carousel section -->
+                <div id="carousel" class="content-inner">
+                	<div id="navigation">
+                        <div id="prev_btn" class="nav_btn" style="float:left"><img src="img/page/l-arrow.png" alt="Previous" title="Previous" height="51" width="25" /></div>
+                        <div id="next_btn" class="nav_btn" style="float:right"><img src="img/page/r-arrow.png" alt="More" title="More" height="51" width="25" /></div>
+                    </div>
+                    <div id='c-content'></div>
+                </div>
+                <!-- end of carousel section -->
+                 
+                <div id="form" style="display:none">
+                    <div class="content-inner" style="max-width:740px;">
+                        <div class="section group">
+                            <div class="col span_1_of_2">
+                                <div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?" maxlength="50"></div>
+                            </div>
+                            <div class="col span_1_of_2">
+                                <div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?" maxlength="255"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="clear:both"></div>
-                
-                <div class="content-inner" style="max-width:740px;">
-                	<div class="section group">
-                        <div class="col span_1_of_2">
-                        	<div id="user_gender">
-                            	<div class="gender-line">Are you Male?</div>
-                                <div class="check-box">
-                                	<div class="dot" id="male"></div>
+                    <div style="clear:both"></div>
+                    
+                    <div class="content-inner" style="max-width:740px;">
+                        <div class="section group">
+                            <div class="col span_1_of_2">
+                                <div id="user_gender">
+                                    <div class="gender-line">Are you Male?</div>
+                                    <div class="check-box">
+                                        <div class="dot" id="male"></div>
+                                    </div>
+                                    <div class="gender-line">Or Female?</div>
+                                    <div class="check-box">
+                                        <div class="dot" id="female" style="display:none"></div>
+                                    </div>
                                 </div>
-                                <div class="gender-line">Or Female?</div>
-                                <div class="check-box">
-                                	<div class="dot" id="female" style="display:none"></div>
+                            </div>
+                            <div class="col span_1_of_2">
+                                <div id="user_sport" class="my-text-field">
+                                    <div id="ddSport" class="dd-container" ></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col span_1_of_2">
-                        	<div id="user_sport" class="my-text-field">
-                              	<div id="ddSport" class="dd-container" ></div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div style="clear:both"></div>
-                
-                <div class="content-inner" style="max-width:740px;">
-                	<div class="section group">
-                        <div class="col span_1_of_2">
-                        	<div id="user_duration" class="my-text-field">
-                              	<div id="ddDuration" class="dd-container"></div>
-                            </div>
-                        </div>
-                        <div class="col span_1_of_2">
-                        	<div id="user_topic" class="my-text-field">
-                              	<div id="ddTopic" class="dd-container"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="clear:both"></div>
-                
-                
-                <div class="content-inner" style="max-width:740px;">
-                	<div class="section group">
-                        <div class="col span_1_of_2">
-                        	<div id="user_opt" class="my-text-field">
-                            	<div id="optin">
-                                	<div class="opt" id="opt-dot"></div>
+                    <div style="clear:both"></div>
+                    
+                    <div class="content-inner" style="max-width:740px;">
+                        <div class="section group">
+                            <div class="col span_1_of_2">
+                                <div id="user_duration" class="my-text-field">
+                                    <div id="ddDuration" class="dd-container"></div>
                                 </div>
-                                <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
+                            </div>
+                            <div class="col span_1_of_2">
+                                <div id="user_topic" class="my-text-field">
+                                    <div id="ddTopic" class="dd-container"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col span_1_of_2">
-                        	<div id="results_button" class=""><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
-                        </div>
                     </div>
-                    <div class="signature"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /></div>
-                </div>
-                <div style="clear:both"></div>
-                
-            </div>
+                    <div style="clear:both"></div>
+                    
+                    
+                    <div class="content-inner" style="max-width:740px;">
+                        <div class="section group">
+                            <div class="col span_1_of_2">
+                                <div id="user_opt" class="my-text-field">
+                                    <div id="optin">
+                                        <div class="opt" id="opt-dot"></div>
+                                    </div>
+                                    <div class="opt-txt">Leave this box unchecked if you’d rather not receive more information on training, events and endurance nutrition from Science in Sport.</div>
+                                </div>
+                            </div>
+                            <div class="col span_1_of_2">
+                                <div id="results_button" class=""><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
+                            </div>
+                        </div>
+                        <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /></div>
+                    </div>
+                    <div style="clear:both"></div>
+            	</div>   
+           	</div>
             
             
             <footer>

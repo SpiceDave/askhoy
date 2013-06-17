@@ -79,6 +79,35 @@ jQuery(document).ready(function(){
 		    jQuery('#header').height(546);
 	  	}
 	} 
+	
+	/******************************************************************************************
+	*
+	* Twitter and facebook share buttons
+	*
+	*******************************************************************************************/
+	jQuery('.twitter-share, .facebook-share').click(function(){
+		if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-top')
+		{
+			//share on twitter (top link)
+			window.open('https://twitter.com/intent/tweet?text=Got a question about nutrition? Go to http://ASKHOY.com and Sir Chris will talk through the right nutrition for you. ' ,'_blank');
+		}
+		else if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-footer')
+		{
+			//share on twitter (bottom link)
+			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to http://ASKHOY.com and he’ll do the same for you.  ' ,'_blank');
+		}
+		
+		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
+		{
+			//share on facebook (top link)
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.png&p[title]=Got a question about nutrition%3F&p[summary]=Go to ASKHOY.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
+		}
+		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-footer')
+		{
+			//share on facebook (bottom link)
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he’ll do the same for you.' ,'_blank', 'width=626,height=436');
+		}
+	});
 
 
 	/******************************************************************************************
@@ -122,6 +151,8 @@ jQuery(document).ready(function(){
 * function to collect the results of the 'form' and write to database via php script
 *
 *******************************************************************************************/
+
+var user_id = 0;
 var name;
 var email;
 var gender;
@@ -130,6 +161,7 @@ var hours;
 var duration;
 var topic;
 var optin;
+var products_list;
 //save the user record
 function get_results(){
 	/* save the record */
@@ -192,7 +224,8 @@ function get_results(){
 		//post the values to the server for writing to db
 		$.post("save_user.php", { NAME: name, EMAIL: email, GENDER: gender, SPORT:sport, HOURS:hours, TOPIC: topic, OPTIN: optin})
 		.done(function(data) {
-			 jQuery('.message').text(data);
+			 var php_data =  data.split('|');
+			 jQuery('.message').text(php_data[0]);
 			 
 			 //simplify hours results to long or short duration
 			 duration = 'Long';
@@ -202,6 +235,7 @@ function get_results(){
 			 }
 			 tailor_results();
 			 //need to get the id of the user once written, return in from server and write to hidden field or cookie
+			 user_id = php_data[1];
 		});
 	}
 	else
@@ -240,7 +274,31 @@ function tailor_results(){
 	
 	//set the submessage text
 	jQuery('#sub-message').html('<strong>You selected: </strong>' + sport + ', ' + hours + ' pw, ' + topic )
+	
+	/**
+	* get the appropriate products
+	**/
+	
+	if(topic == 'Preparation')
+	{
+		if(duration == 'Short')
+		{
+			products_list = '1,2,3';
+			
+		}
+		else if (duration =='Long')
+		{
+			products_list = '1,2,3,4,5';
+		}
+	}
+	//and so on...
+	showProducts(products_list);
+	
+
 		
+	/**
+	* get the appropriate video
+	**/
 	if(sport == 'Cycling')
 	{
 		//do the Cycling stuff
@@ -251,6 +309,7 @@ function tailor_results(){
 			{
 				//Preparation
 				modVP.loadVideoByReferenceID(1);
+				
 			}
 			else if(topic == 'Performance')
 			{
@@ -424,6 +483,24 @@ function check_email(address){
 	}
 }
 
+/******************************************************************************************
+*
+* get the associated products for the user's selection
+*
+*******************************************************************************************/
+function showProducts(){
+	jQuery.post("get_products.php", { PRODUCTS_LIST: products_list, SIZE: 'LARGE'})
+	.done(function(data) {
+		//split into products
+		 var all_data = data.split('^');
+		 for(i = 0; i< all_data.length; i++)
+		 {
+			 //split into product fields
+			 var php_data =  all_data[i].split('|');
+			 jQuery('#c-content').text(php_data[3]);
+		 }
+	});
+}
 
 /******************************************************************************************
 *
@@ -439,9 +516,11 @@ function myTemplateLoaded(experienceID) {
 	player = brightcove.api.getExperience(experienceID);   
 	modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
 }   
-
+/* remove this stub */
 jQuery('#trim').click(function(){
 	modVP.loadVideoByReferenceID(2);
+	products_list = '30, 40';/****** stub ******/
+	showProducts();
 	/*modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
 	modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete);*/
 });

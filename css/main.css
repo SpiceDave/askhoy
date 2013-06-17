@@ -145,6 +145,7 @@ textarea {
 	color:#000;
 	font-size:0.9em;
 }
+
 #app{
 	border-top:#e7e7e7 1px solid;
 	background-image:url(../img/page/app-bg.png);
@@ -254,7 +255,25 @@ textarea {
 	display:none;
 	height:1px;
 }
-
+.twitter-share, .facebook-share{
+	height:20px;
+	width:20px;
+	cursor:pointer;
+	position:absolute;
+	background:#33C;
+}
+#tw-top{
+	left:71px;
+	top:8px;
+}
+#fb-top{
+	left:93px;
+	top:8px;
+}
+.nav_btn{
+	padding:10px;
+	cursor:pointer;
+}
 
 
 /*ask hoy media queries */
@@ -296,6 +315,15 @@ textarea {
 		width:114px;
 		background-image:url(../img/page/share-fg.png);
 	}
+	#tw-top{
+		left:55px;
+		top:5px;
+	}
+	#fb-top{
+		left:79px;
+		top:5px;
+	}
+	
 	#black-bit{
 		display:none;
 	}
