@@ -3,7 +3,6 @@
 * to perfom when page loads...
 *
 *******************************************************************************************/
-
 jQuery(document).ready(function(){
 
 	/******************************************************************************************
@@ -108,7 +107,8 @@ jQuery(document).ready(function(){
 			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he’ll do the same for you.' ,'_blank', 'width=626,height=436');
 		}
 	});
-
+	
+	
 
 	/******************************************************************************************
 	*
@@ -161,7 +161,7 @@ var hours;
 var duration;
 var topic;
 var optin;
-var products_list;
+var products_list = '';
 //save the user record
 function get_results(){
 	/* save the record */
@@ -489,17 +489,87 @@ function check_email(address){
 *
 *******************************************************************************************/
 function showProducts(){
+	var carousel_html = '<div>';
+	var overlay_html  = '';
+	
 	jQuery.post("get_products.php", { PRODUCTS_LIST: products_list, SIZE: 'LARGE'})
 	.done(function(data) {
 		//split into products
 		 var all_data = data.split('^');
-		 for(i = 0; i< all_data.length; i++)
+		 for(i = 0; i< all_data.length -1; i++)// all_data.length *'-1'* because of the last ^ at the end of the record creates an empty record
 		 {
 			 //split into product fields
 			 var php_data =  all_data[i].split('|');
-			 jQuery('#c-content').text(php_data[3]);
+			 
+			 //lose the flavour if attached
+			 var title = php_data[1].split('[');
+			 
+			 // convert the li tags back to html
+			 var li = php_data[4].replace(/\[/g,"<");
+			 li = li.replace(/\]/g,">");
+			 
+			 // convert the p tags back to html
+			 var p = php_data[3].replace(/\[/g,"<");
+			 p = p.replace(/\]/g,">");
+			 
+			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more"><a href="'+ php_data[5] +'" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></a></div></div></div>';
+			 
+			 overlay_html += '<div class="sis-product-container" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div class="overlay-more"><a href="'+ php_data[5] +'" target="_blank" ><img src="see-range.png" alt="See full range" title="SEE FULL RANGE" height="50" width="50" /></a></div></div>';
 		 }
+		 jQuery('#c-content').html(carousel_html).width((all_data.length-1)*290);
+		 doCarousel(all_data.length);
 	});
+	
+}
+
+/******************************************************************************************
+*
+* Function to create carousel 
+*
+*******************************************************************************************/
+
+function doCarousel(noOfProducts){
+	var left = 0;
+	
+	if((noOfProducts > 3 ))
+	{
+		jQuery('#next_btn').show();
+		
+	}
+	var productsDisplayed = jQuery('#slider').width()/290;
+	 
+	 
+	//nav next
+	jQuery('#next_btn').click(function(){
+		jQuery('#c-content').animate({left: '-=290'}, 500, function(){
+			jQuery('#c-content').clearQueue();
+			var left = 0 - ( parseInt(jQuery('#c-content').css('left')));
+			jQuery('#prev_btn').show();	
+			
+			if(left > (noOfProducts - productsDisplayed -2)*290)
+			{
+				jQuery('#next_btn').hide();
+			}
+		});
+	});
+	
+	//nav prev
+	jQuery('#prev_btn').click(function(){
+		jQuery('#c-content').animate({left: '+=290'}, 500, function(){
+			jQuery('#c-content').clearQueue();
+			var left = 0 - ( parseInt(jQuery('#c-content').css('left')));
+			jQuery('#next_btn').show();
+			
+			console.log(left);
+			
+			if(left == 0)
+			{
+				jQuery('#prev_btn').hide();
+			}
+		});
+		
+	});
+	
 }
 
 /******************************************************************************************
@@ -518,9 +588,9 @@ function myTemplateLoaded(experienceID) {
 }   
 /* remove this stub */
 jQuery('#trim').click(function(){
-	modVP.loadVideoByReferenceID(2);
-	products_list = '30, 40';/****** stub ******/
+	products_list = '1,2,3,4,5';/****** stub ******/
 	showProducts();
+	modVP.loadVideoByReferenceID(2);
 	/*modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
 	modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete);*/
 });

@@ -83,18 +83,21 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 <div class="content-inner" style="padding:10px; text-align:center">
                 	<div class="message" style="margin: 0 auto">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
                     <div id="sub-message" style="margin: 0 auto"></div>
+                    <div style="clear:both"></div>
                 </div>
                 <!-- carousel section -->
                 <div id="carousel" class="content-inner">
-                	<div id="navigation">
-                        <div id="prev_btn" class="nav_btn" style="float:left"><img src="img/page/l-arrow.png" alt="Previous" title="Previous" height="51" width="25" /></div>
-                        <div id="next_btn" class="nav_btn" style="float:right"><img src="img/page/r-arrow.png" alt="More" title="More" height="51" width="25" /></div>
+                	<div id="slider">
+                		<div id='c-content'></div>
                     </div>
-                    <div id='c-content'></div>
+                	<div id="navigation">
+                        <div id="prev_btn" class="nav_btn" style="float:left; display:none;"><img src="img/page/l-arrow.png" alt="Previous" title="Previous" height="51" width="25" /></div>
+                        <div id="next_btn" class="nav_btn" style="float:right; display:none;"><img src="img/page/r-arrow.png" alt="More" title="More" height="51" width="25" /></div>
+                    </div>
                 </div>
                 <!-- end of carousel section -->
                  
-                <div id="form" style="display:none">
+                <div id="form" style="display:block">
                     <div class="content-inner" style="max-width:740px;">
                         <div class="section group">
                             <div class="col span_1_of_2">

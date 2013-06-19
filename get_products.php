@@ -2,9 +2,10 @@
 	include '../config.php';
 	
 	
-	/*$products_list = $_POST['PRODUCTS_LIST'];
-	$size = $_POST['SIZE'];*/
-	$products_list = '30,40,60';
+	$products_list = $_POST['PRODUCTS_LIST'];
+	//$products_list = '15,3,1';
+	$size = $_POST['SIZE'];
+	
 
 	// Create connection
 	$con = mysqli_connect("localhost", $db_user, $db_pass, $db_name);
@@ -16,7 +17,9 @@
 	}
 	else
 	{
-		$query = "SELECT * FROM `tbl_product` WHERE `product_id` IN ('$products_list');";
+		str_replace($healthy, $yummy, $phrase);
+		$query = "SELECT * FROM `tbl_product` WHERE `product_id` IN ($products_list);";
+
 		if ($result = mysqli_query($con, $query)) 
 		{
 
@@ -33,14 +36,11 @@
 					$items = $product_id.'|'.$product_title.'|'.$product_subtitle.'|'.$product_desc_html.'|'.$product_bullet_html.'|'.$product_link.'|'.$product_image.'^';
 					
 					echo $items;
-					
-					
+		
 			}
-	
 			/* free result set */
 			mysqli_free_result($result);
 		}
-
 	}
 	$con->close();
 ?>
