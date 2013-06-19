@@ -86,7 +86,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div style="clear:both"></div>
                 </div>
                 <!-- carousel section -->
-                <div id="carousel" class="content-inner">
+                <div id="carousel" class="content-inner" style="display:none">
                 	<div id="slider">
                 		<div id='c-content'></div>
                     </div>
@@ -94,6 +94,20 @@ the rest of the HTML is processed and the page load is complete, remove the line
                         <div id="prev_btn" class="nav_btn" style="float:left; display:none;"><img src="img/page/l-arrow.png" alt="Previous" title="Previous" height="51" width="25" /></div>
                         <div id="next_btn" class="nav_btn" style="float:right; display:none;"><img src="img/page/r-arrow.png" alt="More" title="More" height="51" width="25" /></div>
                     </div>
+                    <div id='hor-ds'><img src="img/page/h-ds-car.png" width="930" height="14" /></div>
+                    <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE"></div>
+                    <div class="sub-footer-text" style="text-align:center">Find out more about nutrition and invite your friends to Ask Hoy</div>
+                  	<div class="thumb-crumb" style="text-align:center">
+                        <a href="#"><img class="bread-crumb-thumb" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="98" /></a>                  <a href="#"><img class="bread-crumb-thumb" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="98" /></a>
+                        <a href="#"><img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="98" /></a>
+                        <img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/share-lower.png" alt="Share" width="172" height="98" usemap="#Map" />
+                          <map name="Map">
+                            <area shape="rect" coords="77,19,99,42" href="#" alt="twitter" id="tw-footer" class="twitter-share">
+                            <area shape="rect" coords="102,20,125,42" href="#" alt="facebook" id="fb-footer" class="facebook-share">
+                          </map>
+                	 </div>
+                     <div style="height:80px; clear:both"></div>
+                    <div style="clear:both"></div>
                 </div>
                 <!-- end of carousel section -->
                  

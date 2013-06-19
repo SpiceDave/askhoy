@@ -254,22 +254,31 @@ function get_results(){
 	
 function tailor_results(){
 	
+	jQuery('#form').hide();
+	jQuery('#carousel').show();
+	
+	jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').show();
+	
 	//set the correct background header image
 	if(topic == 'Preparation')
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/preparation-hdr.jpg)'});
+		jQuery('#preparation-thumb').hide();
 	}
 	else if(topic == 'Performance')
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/performance-hdr.jpg)'});
+		jQuery('#performance-thumb').hide();
 	}
 	else if(topic == 'Recovery')
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/recovery-hdr.jpg)'});
+		jQuery('#recovery-thumb').hide();
 	}
 	else
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
+		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
 	}
 	
 	//set the submessage text
@@ -283,17 +292,47 @@ function tailor_results(){
 	{
 		if(duration == 'Short')
 		{
-			products_list = '1,2,3';
+			products_list = '1,2,4';
 			
 		}
 		else if (duration =='Long')
 		{
-			products_list = '1,2,3,4,5';
+			products_list = '1,2,4,5,6';
 		}
 	}
-	//and so on...
-	showProducts(products_list);
 	
+	else if(topic == 'Performance')
+	{
+		products_list = '7,8,3,9';
+	}
+	
+	else if(topic == 'Recovery')
+	{
+		if(duration == 'Short')
+		{
+			products_list = '10,12';
+			
+		}
+		else if (duration =='Long')
+		{
+			products_list = '11,13,14,15';
+		}
+	} 
+	
+	//all three
+	else 
+	{
+		if(duration == 'Short')
+		{
+			products_list = '1,2,4,7,8,3,9,10,12';
+			
+		}
+		else if (duration =='Long')
+		{
+			products_list = '1,2,4,5,6,7,8,3,9,11,13,14,15';
+		}
+	}
+	showProducts();
 
 		
 	/**
@@ -517,7 +556,7 @@ function showProducts(){
 			 overlay_html += '<div class="sis-product-container" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div class="overlay-more"><a href="'+ php_data[5] +'" target="_blank" ><img src="see-range.png" alt="See full range" title="SEE FULL RANGE" height="50" width="50" /></a></div></div>';
 		 }
 		 jQuery('#c-content').html(carousel_html).width((all_data.length-1)*290);
-		 doCarousel(all_data.length);
+		 doCarousel(all_data.length-1);
 	});
 	
 }
@@ -530,23 +569,35 @@ function showProducts(){
 
 function doCarousel(noOfProducts){
 	var left = 0;
+	//just show the single version if there are only two products
+	if(noOfProducts == 2)
+	{
+		jQuery('#slider').width('290');
+		jQuery('#carousel').css({'background':'none'});
+	}
 	
-	if((noOfProducts > 3 ))
+	var swidth = jQuery('#slider').width();
+	
+	//show the more button if there are more products to show
+	if((noOfProducts > 3 && swidth == 870) || swidth == 290)
 	{
 		jQuery('#next_btn').show();
-		
 	}
-	var productsDisplayed = jQuery('#slider').width()/290;
-	 
+
 	 
 	//nav next
 	jQuery('#next_btn').click(function(){
+		var productsDisplayed = jQuery('#slider').width()/290;
+		jQuery('#carousel').css({'background':'none'});
 		jQuery('#c-content').animate({left: '-=290'}, 500, function(){
 			jQuery('#c-content').clearQueue();
 			var left = 0 - ( parseInt(jQuery('#c-content').css('left')));
 			jQuery('#prev_btn').show();	
-			
-			if(left > (noOfProducts - productsDisplayed -2)*290)
+			if(productsDisplayed > 1)
+			{
+				jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
+			}
+			if(left > (noOfProducts - productsDisplayed - 1)*290)
 			{
 				jQuery('#next_btn').hide();
 			}
@@ -555,12 +606,16 @@ function doCarousel(noOfProducts){
 	
 	//nav prev
 	jQuery('#prev_btn').click(function(){
+		var productsDisplayed = jQuery('#slider').width()/290;
+		jQuery('#carousel').css({'background':'none'});
 		jQuery('#c-content').animate({left: '+=290'}, 500, function(){
 			jQuery('#c-content').clearQueue();
 			var left = 0 - ( parseInt(jQuery('#c-content').css('left')));
 			jQuery('#next_btn').show();
-			
-			console.log(left);
+			if(productsDisplayed > 1)
+			{
+				jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
+			}
 			
 			if(left == 0)
 			{
@@ -587,13 +642,13 @@ function myTemplateLoaded(experienceID) {
 	modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
 }   
 /* remove this stub */
-jQuery('#trim').click(function(){
-	products_list = '1,2,3,4,5';/****** stub ******/
+/*jQuery('#trim').click(function(){
+	products_list = '1,2,3';
 	showProducts();
-	modVP.loadVideoByReferenceID(2);
+	modVP.loadVideoByReferenceID(2);*/
 	/*modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
 	modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete);*/
-});
+/*});*/
 /*function onMediaBegin(evt) {    
 	 alert('video beginning');  
 }
