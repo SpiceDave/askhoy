@@ -321,6 +321,7 @@ textarea {
 #navigation{
 	position:relative;
 	top:-180px;
+	height:71px;
 }
 #slider{
 	width:870px;
@@ -336,8 +337,77 @@ textarea {
 	font-size:0.9em;
 }
 
+/*overlay*/
 
-	
+.black_overlay {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity=80);
+}
+#overlay-main{
+	position:fixed;
+	width:740px;
+	height:505px;
+	background-color:white;
+	/*padding:10px;*/
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -370px;
+	background:url(../img/page/ov-bg.jpg) no-repeat;
+}
+.overlay-image{
+	width:267px;
+	height:505px;
+	float:left;
+	text-align:center;
+}
+.overlay-image img{
+	vertical-align:middle;
+	padding-top:60px;
+}
+.product-full-copy{
+	width:473px;
+	height:505px;
+	float:right;
+}
+.overlay-title{
+	font-size:1.3em;
+	color:#2e2e2e;
+	font-weight:bold;
+	padding:50px 0 0 60px;
+}
+.overlay-subtitle{
+	font-size:0.9em;
+	color:#646464;
+	font-weight:bold;
+	padding:5px 60px 0 60px;
+}
+.product-details{
+	font-size: 0.9em;
+	color: #373737;
+	font-weight: bold;
+	padding: 30px 0 0 60px;
+}
+.product-description{
+	font-size: 0.8em;
+	color: #858585;
+	padding: 5px 60px 0 60px;
+}
+.overlay-bullets{
+	font-size: 0.8em;
+	color: #373737;
+	padding: 0px 0 10px 40px;
+}
+.overlay-more{
+	padding-left:60px;
+}
 
 
 /*ask hoy media queries */

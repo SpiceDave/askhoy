@@ -209,6 +209,9 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 </div>
                 </footer>
             </div>
+            
+            <div id="fade" class="black_overlay" style="display:none"></div>
+            <div id="overlay-main" style="display:none"></div>
         
 
 
