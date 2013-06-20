@@ -556,7 +556,7 @@ function showProducts(){
 			 
 			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more"><a href="javascript:moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></a></div></div></div>';
 			 
-			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div class="overlay-more"><a href="javascript:goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></a></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
+			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
 		 }
 		 jQuery('#c-content').html(carousel_html).width((all_data.length-1)*290);
 		 doCarousel(all_data.length-1);
@@ -660,11 +660,8 @@ function lessInfo(){
 *
 *******************************************************************************************/
 function goToSiS(uid,pid,hlink){
+	window.open(hlink,'_blank');
 	$.post("save_user_choice.php", { USER_ID: uid, PRODUCT_ID: pid})
-		.done(function(data) {
-			 //window.location.assign(hlink);
-			 window.open(hlink,'_blank');
-		});
 }
 
 /******************************************************************************************
