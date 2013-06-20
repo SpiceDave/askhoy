@@ -98,8 +98,9 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE"></div>
                     <div class="sub-footer-text" style="text-align:center">Find out more about nutrition and invite your friends to Ask Hoy</div>
                   	<div class="thumb-crumb" style="text-align:center">
-                        <a href="#"><img class="bread-crumb-thumb" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="98" /></a>                  <a href="#"><img class="bread-crumb-thumb" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="98" /></a>
-                        <a href="#"><img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="98" /></a>
+                        <a href="javascript:getOtherTopic('Preparation');"><img class="bread-crumb-thumb" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="98" /></a>                  
+                        <a href="javascript:getOtherTopic('Performance');"><img class="bread-crumb-thumb" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="98" /></a>
+                        <a href="javascript:getOtherTopic('Recovery');"><img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="98" /></a>
                         <img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/share-lower.png" alt="Share" width="172" height="98" usemap="#Map" />
                           <map name="Map">
                             <area shape="rect" coords="77,19,99,42" href="#" alt="twitter" id="tw-footer" class="twitter-share">
@@ -190,18 +191,18 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div class="content-inner">
                         <div class="footer-logo"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></div>
                         <div class="tandc">
-                        	<a href="#"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="27"/></a>
+                        	<a href="http://www.scienceinsport.com/terms-and-conditions/"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="27"/></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href=""><img src="img/page/p-policy.gif" alt="Privacy Policy" height="19" width="60" /></a>
+                            <a href="http://www.scienceinsport.com/privacy-policy/"><img src="img/page/p-policy.gif" alt="Privacy Policy" height="19" width="60" /></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="#"><img src="img/page/c-services.gif" alt="Customer Services" height="19" width="84" /></a>
+                            <a href="http://www.scienceinsport.com/faq/"><img src="img/page/c-services.gif" alt="Customer Services" height="19" width="84" /></a>
                             <div id="br"><br /></div>
                             <img id="slash" src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="#"><img src="img/page/p-range.gif" alt="Product Range" height="19" width="67" /></a>
+                            <a href="http://www.scienceinsport.com/sis-products/"><img src="img/page/p-range.gif" alt="Product Range" height="19" width="67" /></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="#"><img src="img/page/contact-us.gif" alt="contact use" height="19" width="49" /></a>
+                            <a href="http://www.scienceinsport.com/about-sis/contact-sis/"><img src="img/page/contact-us.gif" alt="contact use" height="19" width="49" /></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="#"><img src="img/page/copyright.gif" alt="©Copyright SiS 2013" height="19" width="94" /></a>
+                            <img src="img/page/copyright.gif" alt="©Copyright SiS 2013" height="19" width="94" />
 
                          </div>
                         <div class="bottom-line">Endurance nutrition. Without compromise.</div>

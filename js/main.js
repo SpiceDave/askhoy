@@ -99,12 +99,12 @@ jQuery(document).ready(function(){
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
 		{
 			//share on facebook (top link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.png&p[title]=Got a question about nutrition%3F&p[summary]=Go to ASKHOY.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://54.217.223.91/apple-touch-icon-144x144-precomposed.png&p[title]=Got a question about nutrition%3F&p[summary]=Go to ASKHOY.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
 		}
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-footer')
 		{
 			//share on facebook (bottom link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he’ll do the same for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://54.217.223.91/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he’ll do the same for you.' ,'_blank', 'width=626,height=436');
 		}
 	});
 	
@@ -654,10 +654,21 @@ function lessInfo(){
 function goToSiS(uid,pid,hlink){
 	$.post("save_user_choice.php", { USER_ID: uid, PRODUCT_ID: pid})
 		.done(function(data) {
-			 window.location.assign(hlink);
+			 //window.location.assign(hlink);
+			 window.open(hlink,'_blank');
 		});
 }
 
+/******************************************************************************************
+*
+* takes the user back through for a different topic selection
+*
+*******************************************************************************************/
+function getOtherTopic(newtopic)
+{
+	topic = newtopic;
+	tailor_results();
+}
 /******************************************************************************************
 *
 * code for videoplayer
