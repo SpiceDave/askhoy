@@ -572,17 +572,24 @@ function showProducts(){
 
 function doCarousel(noOfProducts){
 	var left = 0;
+	//restart the carousel
+	jQuery('#c-content').css({'left':'0'});
 	//just show the single version if there are only two products
 	if(noOfProducts == 2)
 	{
 		jQuery('#slider').width('290');
 		jQuery('#carousel').css({'background':'none'});
 	}
+	else
+	{
+		jQuery('#slider').width('870');
+		jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
+	}
 	
 	var swidth = jQuery('#slider').width();
 	
 	//show the more button if there are more products to show
-	if((noOfProducts > 3 && swidth == 870) || swidth == 290)
+	if((noOfProducts > 3 && swidth == 870) || ( noOfProducts > 1 && swidth == 290))
 	{
 		jQuery('#next_btn').show();
 	}
@@ -600,7 +607,7 @@ function doCarousel(noOfProducts){
 			{
 				jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
 			}
-			if(left > (noOfProducts - productsDisplayed - 1)*290)
+			if(left > (noOfProducts - productsDisplayed-1)*290)
 			{
 				jQuery('#next_btn').hide();
 			}
@@ -627,7 +634,8 @@ function doCarousel(noOfProducts){
 		});
 		
 	});
-	
+	//sticking in memory for some reason, so clear it;
+	noOfProducts = 0;
 }
 
 /******************************************************************************************
@@ -667,7 +675,9 @@ function goToSiS(uid,pid,hlink){
 function getOtherTopic(newtopic)
 {
 	topic = newtopic;
+	//redo the output
 	tailor_results();
+	jQuery('#next_btn, #prev_btn').hide();
 }
 /******************************************************************************************
 *
