@@ -3,6 +3,8 @@
 * to perfom when page loads...
 *
 *******************************************************************************************/
+var noOfProducts;//now global so that it can be used by resize function
+
 jQuery(document).ready(function(){
 
 	/******************************************************************************************
@@ -83,7 +85,7 @@ jQuery(document).ready(function(){
 	
 	/******************************************************************************************
 	*
-	* function to set the height of the video player
+	* function to set the height of the video player, and rest the carousel
 	*
 	*******************************************************************************************/
 	$(window).resize(function() {
@@ -265,6 +267,8 @@ function get_results(){
 			 tailor_results();
 			 //need to get the id of the user once written, return in from server and write to hidden field or cookie
 			 user_id = php_data[1];
+			 //let's see the video
+			 $("html, body").animate({ scrollTop: 0 }, "slow");
 		});
 	}
 	else
@@ -562,6 +566,7 @@ function check_email(address){
 *******************************************************************************************/
 
 var overlay_html  = new Array('never used','','','','','','','','','','','','','','',''); //extra element to keep references straight forward! (array start at zero)
+var mobile_html  = new Array('never used','','','','','','','','','','','','','','',''); //extra element to keep references straight forward! (array start at zero)
 
 function showProducts(){
 	var carousel_html = '<div>';
@@ -589,11 +594,14 @@ function showProducts(){
 			 
 			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more"><a href="javascript:moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></a></div></div></div>';
 			 
-			 
 			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
+			 
+			 mobile_html[php_data[0]] = '<div class="sis-product-overlay-mobile" id="mobile-overlay-'+ php_data[0] +'"><div class="close-overlay"><img src="img/page/close.gif" alt="close" title="Close" height="47" width="91" /></div><div class="mobile-overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div><div class="close-overlay"><img src="img/page/close.gif" alt="close" title="Close" height="47" width="91" /></div></div></div>';
+			 
 		 }
 		 jQuery('#c-content').html(carousel_html).width((all_data.length-1)*290);
-		 doCarousel(all_data.length-1);
+		 noOfProducts = all_data.length-1;
+		 doCarousel();
 	});
 	
 }
@@ -603,9 +611,7 @@ function showProducts(){
 * Function to create carousel 
 *
 *******************************************************************************************/
-var noOfProducts;
-function doCarousel(qty){
-	noOfProducts = qty;
+function doCarousel(){
 	var left = 0;
 	//restart the carousel
 	jQuery('#c-content').css({'left':'0'});
@@ -679,13 +685,22 @@ function doCarousel(qty){
 *******************************************************************************************/
 function moreInfo(id){
 	//pop up the light box
-	jQuery('#overlay-main').html(overlay_html[id]);
-	jQuery('.black_overlay, #overlay-main').fadeIn("slow");
-	
-	jQuery('.black_overlay, .close-overlay').click(function(){lessInfo()});
+	if(jQuery(document).width() > 750)
+	{
+		jQuery('#overlay-main').html(overlay_html[id]);
+		jQuery('.black_overlay, #overlay-main').fadeIn("slow");
+		jQuery('.black_overlay, .close-overlay').click(function(){lessInfo()});
+	}
+	else
+	{
+		jQuery('#overlay-mobile').html(mobile_html[id]);
+		jQuery('.white_overlay, #overlay-mobile').fadeIn("slow");
+		window.scrollTo(0,0);
+		jQuery('.close-overlay').click(function(){lessInfo()});
+	}
 }
 function lessInfo(){
-	jQuery('.black_overlay, #overlay-main').fadeOut("slow", function(){jQuery('#overlay-main').html('');});
+	jQuery('.black_overlay, .white_overlay, #overlay-mobile, #overlay-main').fadeOut("slow", function(){jQuery('#overlay-main').html('');});
 }
 
 /******************************************************************************************
@@ -705,6 +720,7 @@ function goToSiS(uid,pid,hlink){
 *******************************************************************************************/
 function getOtherTopic(newtopic)
 {
+	$("html, body").animate({ scrollTop: 0 }, "slow");
 	topic = newtopic;
 	//redo the output
 	tailor_results();
