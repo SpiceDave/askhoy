@@ -89,6 +89,7 @@ jQuery(document).ready(function(){
 	$(window).resize(function() {
 	  $('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 	  setHeaderHeight();
+	  doCarousel(noOfProducts);
 	});
 	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 	setHeaderHeight();
@@ -102,7 +103,8 @@ jQuery(document).ready(function(){
 	  	{
 		    jQuery('#header').height(546);
 	  	}
-	} 
+	}
+	
 	
 	/******************************************************************************************
 	*
@@ -302,9 +304,12 @@ function tailor_results(){
 		jQuery('#header').css({'background-image':'url(../img/page/recovery-hdr.jpg)'});
 		jQuery('#recovery-thumb').hide();
 	}
-	if (originalTopic == 'Preparation, Perfomance and Recovery')
+	else
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
+	}
+	if (originalTopic == 'Preparation, Perfomance and Recovery')
+	{
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
 		jQuery('#filter-dd').show();
 	}
@@ -315,7 +320,7 @@ function tailor_results(){
 	/**
 	* get the appropriate products
 	**/
-	
+
 	if(topic == 'Preparation')
 	{
 		if(duration == 'Short')
@@ -584,6 +589,7 @@ function showProducts(){
 			 
 			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more"><a href="javascript:moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></a></div></div></div>';
 			 
+			 
 			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
 		 }
 		 jQuery('#c-content').html(carousel_html).width((all_data.length-1)*290);
@@ -597,22 +603,22 @@ function showProducts(){
 * Function to create carousel 
 *
 *******************************************************************************************/
-
-function doCarousel(noOfProducts){
+var noOfProducts;
+function doCarousel(qty){
+	noOfProducts = qty;
 	var left = 0;
 	//restart the carousel
 	jQuery('#c-content').css({'left':'0'});
 	//just show the single version if there are only two products
-	if(noOfProducts == 2)
+	/*if(noOfProducts == 2)
 	{
 		jQuery('#slider').width('290');
 		jQuery('#carousel').css({'background':'none'});
 	}
-	else
-	{
+	else if(jQuery('#carousel').css('background') != 'none'){
 		jQuery('#slider').width('870');
 		jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
-	}
+	}*/
 	
 	var swidth = jQuery('#slider').width();
 	
@@ -631,11 +637,13 @@ function doCarousel(noOfProducts){
 			jQuery('#c-content').clearQueue();
 			var left = 0 - ( parseInt(jQuery('#c-content').css('left')));
 			jQuery('#prev_btn').show();	
+			
 			if(productsDisplayed > 1)
 			{
 				jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
 			}
-			if(left > (noOfProducts - productsDisplayed-1)*290)
+			if((jQuery('#c-content').width()) == (left + (productsDisplayed*290)))
+			//if(left > (noOfProducts - productsDisplayed-1)*290)
 			{
 				jQuery('#next_btn').hide();
 			}
@@ -662,8 +670,6 @@ function doCarousel(noOfProducts){
 		});
 		
 	});
-	//sticking in memory for some reason, so clear it;
-	noOfProducts = 0;
 }
 
 /******************************************************************************************
