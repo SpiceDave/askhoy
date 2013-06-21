@@ -199,8 +199,10 @@ textarea {
 	background-repeat:repeat-x;
 	text-align:left;
 }
-.section{
-	padding:0 10px;
+#filter-dd{
+	max-width:320px;
+	margin:0 auto;
+	padding: 30px 0 50px;
 }
 #user_gender{
 	font-size:0.9em;

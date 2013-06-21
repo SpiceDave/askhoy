@@ -83,6 +83,13 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 <div class="content-inner" style="padding:10px; text-align:center">
                 	<div class="message" style="margin: 0 auto">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
                     <div id="sub-message" style="margin: 0 auto"></div>
+                    
+                    <div id="filter-dd" style="display:none">
+                    	<div id="user_filter" class="my-text-field">
+                            <div id="ddFilter" class="dd-container"></div>
+                        </div>
+                    </div>
+                    
                     <div style="clear:both"></div>
                 </div>
                 <!-- carousel section -->

@@ -47,6 +47,31 @@ jQuery(document).ready(function(){
 			selectText: "What would you like to know about?"
 		});
 		
+	var ddFilter = [
+			{ text: "Preparation Products", value: 1 },
+			{ text: "Performance Products", value: 2 },
+			{ text: "Recovery products", value: 3 }
+		];
+		
+		$('#ddFilter').ddslick({
+			data: ddFilter,
+			selectText: "All related products"
+		});
+		//bind behaviour to the filter button
+		$('#filter-dd').find('.dd-option').click(function(){
+			var filterChoice = jQuery(this).find('input').val();
+			
+			switch (filterChoice){
+				case '1':
+					getOtherTopic('Preparation');
+					break;
+				case '2':
+					getOtherTopic('Performance');
+					break;
+				case '3':
+					getOtherTopic('Recovery');
+			}
+		});
 	/******************************************************************************************
 	*
 	* for the gender and optin checkboxes toggling
@@ -160,6 +185,7 @@ var sport;
 var hours;
 var duration;
 var topic;
+var originalTopic;
 var optin;
 var products_list = '';
 //save the user record
@@ -201,6 +227,7 @@ function get_results(){
 	
 	//get the user's topic selection
 	topic = jQuery('#user_topic').find('.dd-selected-text').text();
+	originalTopic = topic;
 	if(topic.length < 1)
 	{
 		//if user not selected
@@ -275,10 +302,11 @@ function tailor_results(){
 		jQuery('#header').css({'background-image':'url(../img/page/recovery-hdr.jpg)'});
 		jQuery('#recovery-thumb').hide();
 	}
-	else
+	if (originalTopic == 'Preparation, Perfomance and Recovery')
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
+		jQuery('#filter-dd').show();
 	}
 	
 	//set the submessage text
