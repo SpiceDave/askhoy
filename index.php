@@ -108,7 +108,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                         <a href="javascript:getOtherTopic('Preparation');"><img class="bread-crumb-thumb" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="98" /></a>
                         <a href="javascript:getOtherTopic('Performance');"><img class="bread-crumb-thumb" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="98" /></a>
                         <a href="javascript:getOtherTopic('Recovery');"><img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="98" /></a>
-                        <img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/share-lower.png" alt="Share" width="172" height="98" usemap="#Map" />
+                        <img class="bread-crumb-thumb" src="img/page/share-lower.png" alt="Share" width="172" height="98" usemap="#Map" />
                           <map name="Map">
                             <area shape="rect" coords="77,19,99,42" href="#" alt="twitter" id="tw-footer" class="twitter-share">
                             <area shape="rect" coords="102,20,125,42" href="#" alt="facebook" id="fb-footer" class="facebook-share">
