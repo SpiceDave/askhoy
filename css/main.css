@@ -326,7 +326,7 @@ textarea {
 }
 #navigation{
 	position:relative;
-	top:-180px;
+	top:-175px;
 	height:71px;
 }
 #slider{
@@ -447,7 +447,10 @@ textarea {
 	height: 90%;
 	padding-top: 20px;
 }
-	
+.sm-h-ds{
+	display:none;
+}
+
 	
 
 
@@ -459,8 +462,16 @@ textarea {
 	#hor-ds{
 		display:none;
 	}
+	.sm-h-ds{
+		display:block;
+		 margin:0 auto;
+		 padding: 30px 0 30px;
+	}
 	#carousel{
 		background:none;
+	}
+	.signature{
+		margin-top: -100px;
 	}
 }
 @media only screen and (max-width: 610px) {
@@ -470,13 +481,24 @@ textarea {
 	#slash{
 		display:none;
 	}
+	.bread-crumb-thumb
+	{
+		width:202px;
+		height:auto;
+		padding-left:30px;
+		padding-right:30px;
+	}
+
+	#navigation{
+		top:-235px;
+	}
 }
 
 
 
 @media only screen and (max-width: 480px) {
 	
-	
+
 	#video-inner{
 		height:100%;
 		background-color:gray;

@@ -97,13 +97,13 @@ jQuery(document).ready(function(){
 	
 	/******************************************************************************************
 	*
-	* function to set the height of the video player, and rest the carousel
+	* function to set the height of the video player, and reset the carousel
 	*
 	*******************************************************************************************/
 	$(window).resize(function() {
-	  $('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
-	  setHeaderHeight();
-	  doCarousel(noOfProducts);
+		$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
+		setHeaderHeight();
+		doCarousel(noOfProducts);
 	});
 	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 	setHeaderHeight();
@@ -125,6 +125,12 @@ jQuery(document).ready(function(){
 	* Twitter and facebook share buttons
 	*
 	*******************************************************************************************/
+	
+	if(jQuery(document).width() < 610)
+	{
+		jQuery('#fb-footer').attr('coords','125,15,149,42');
+		jQuery('#tw-footer').attr('coords','97,15,122,41');
+	}
 	jQuery('.twitter-share, .facebook-share').click(function(){
 		if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-top')
 		{
@@ -134,7 +140,7 @@ jQuery(document).ready(function(){
 		else if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-footer')
 		{
 			//share on twitter (bottom link)
-			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to http://ASKHOY.com and he’ll do the same for you.  ' ,'_blank');
+			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to http://ASKHOY.com and he\'ll do the same for you.  ' ,'_blank');
 		}
 		
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
@@ -145,7 +151,7 @@ jQuery(document).ready(function(){
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-footer')
 		{
 			//share on facebook (bottom link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://54.217.223.91/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he’ll do the same for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://54.217.223.91/apple-touch-icon-144x144-precomposed.png&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he\'ll do the same for you.' ,'_blank', 'width=626,height=436');
 		}
 	});
 	
@@ -300,8 +306,15 @@ function get_results(){
 function tailor_results(){
 	
 	jQuery('#form').hide();
-	jQuery('#carousel').show();
-	
+	jQuery('#carousel, dsh').show();
+	if(jQuery(document).width() < 610)
+	{
+		jQuery('.signature').hide();
+	}
+	else
+	{
+		jQuery('.signature, .dsh').show();
+	}
 	jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').show();
 	
 	//set the correct background header image
@@ -328,6 +341,7 @@ function tailor_results(){
 	{
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
 		jQuery('#filter-dd').show();
+		jQuery('.sub-footer-text').text('Invite your friends to Ask Hoy');
 	}
 	
 	//set the submessage text
@@ -745,13 +759,15 @@ function getOtherTopic(newtopic)
 *******************************************************************************************/
 
 var player;  
-var modVP; 
+var modVP;
+
 /*var nextVideo = 0; 
 var videos = new Array(1754276221001,1756137891001,1754276206001,1754276205001,1754234236001);*/    
 function myTemplateLoaded(experienceID) {  
 	player = brightcove.api.getExperience(experienceID);   
 	modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
-}   
+}  
+
 /* remove this stub */
 /*jQuery('#trim').click(function(){
 	products_list = '1,2,3';
@@ -767,3 +783,54 @@ function onMediaComplete(evt) {
 	 alert('video complete');  
 }*/
 
+/******** to remove this function also remove the code in the plugins.js file and that in the meta-head section *********/
+var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false);
+var android = (navigator.userAgent.match(/Android/i) ? true : false);
+var supportsOrientationChange = "onorientationchange" in window;
+var orientationEvent = supportsOrientationChange ? "orientationchange" : "resize"; 
+
+function updateOrientation()
+{
+    var orientation = (window.orientation);
+
+    if(android)
+    {
+        window.setTimeout(function() {
+            window.scrollTo(0,0);
+            var size = window.outerHeight/window.devicePixelRatio;
+            $('body').css('min-height', size + 'px');
+            var headerHeight = $('#header').height();
+            var footerHeight = $('#footer').height();
+            var contentHeight = size - (headerHeight+footerHeight);
+            $('#content').css('min-height', contentHeight + 'px');
+            window.scrollTo(0,1);
+        }, 200);
+    }
+
+    if(iOS)
+    {
+        window.setTimeout(function(){
+            window.scrollTo(0,0);
+            var size = iOS_getViewportSize();
+            var headerHeight = $('#header').height();
+            var footerHeight = $('#footer').height();
+            var contentHeight = size.height - (headerHeight+footerHeight);
+            $('#content').css('min-height', contentHeight + 'px');
+            window.scrollTo(0,1);
+        }, 0);
+    }
+}
+
+if(iOS)
+{
+    iOS_addEventListener(window, "load", iOS_handleWindowLoad);
+    iOS_addEventListener(window, "orientationchange", iOS_handleOrientationChange);
+    iOS_addEventListener(window, "resize", iOS_handleReize);
+}
+addEventListener("load", function() 
+{
+    updateOrientation();
+}, false);
+addEventListener(orientationEvent, function() {
+    updateOrientation();
+}, false);

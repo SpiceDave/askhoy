@@ -6,9 +6,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Ask Hoy</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -94,10 +94,13 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div style="clear:both"></div>
                 </div>
                 <!-- carousel section -->
-                <div id="carousel" class="content-inner" style="display:none">
+                
+                <div id="carousel" class="content-inner" style="display:none;">
+                	<div><img class="sm-h-ds" src="img/page/h-ds-car-sm.png" alt="" width="320" height="18" /></div>
                 	<div id="slider">
                 		<div id='c-content'></div>
                     </div>
+                    <div><img class="sm-h-ds" src="img/page/h-ds-car-sm.png" alt="" width="320" height="18" /></div>
                 	<div id="navigation">
                         <div id="prev_btn" class="nav_btn" style="float:left; display:none;"><img src="img/page/l-arrow.png" alt="Previous" title="Previous" height="51" width="25" /></div>
                         <div id="next_btn" class="nav_btn" style="float:right; display:none;"><img src="img/page/r-arrow.png" alt="More" title="More" height="51" width="25" /></div>
@@ -106,13 +109,13 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE"></div>
                     <div class="sub-footer-text" style="text-align:center">Find out more about nutrition and invite your friends to Ask Hoy</div>
                   	<div class="thumb-crumb" style="text-align:center">
-                        <a href="javascript:getOtherTopic('Preparation');"><img class="bread-crumb-thumb" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="98" /></a>
-                        <a href="javascript:getOtherTopic('Performance');"><img class="bread-crumb-thumb" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="98" /></a>
-                        <a href="javascript:getOtherTopic('Recovery');"><img class="bread-crumb-thumb" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="98" /></a>
-                        <img class="bread-crumb-thumb" src="img/page/share-lower.png" alt="Share" width="172" height="98" usemap="#Map" />
+                        <img onclick="getOtherTopic('Preparation');" class="bread-crumb-thumb button" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="110" />
+                        <img onclick="getOtherTopic('Performance');" class="bread-crumb-thumb button" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="110" />
+                        <img onclick="getOtherTopic('Recovery');" class="bread-crumb-thumb button" id="recovery-thumb" src="img/page/recovery.jpg" alt="recovery" width="168" height="110" />
+                        <img class="bread-crumb-thumb" src="img/page/share-lower.png" alt="Share" width="168" height="110" usemap="#Map" />
                           <map name="Map">
-                            <area shape="rect" coords="77,19,99,42" href="#" alt="twitter" id="tw-footer" class="twitter-share">
-                            <area shape="rect" coords="102,20,125,42" href="#" alt="facebook" id="fb-footer" class="facebook-share">
+                            <area shape="rect" coords="77,19,99,42" href="#" alt="twitter" id="tw-footer" class="twitter-share" style="background-color:#369">
+                            <area shape="rect" coords="102,19,126,42" href="#" alt="facebook" id="fb-footer" class="facebook-share" style="background-color:#369">
                           </map>
                 	 </div>
                      <div style="height:80px; clear:both"></div>
@@ -184,10 +187,12 @@ the rest of the HTML is processed and the page load is complete, remove the line
                                 </div>
                             </div>
                             <div class="col span_1_of_2">
-                                <div class="button" onclick="get_results()" id="results_button" class=""><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></div>
+                                <div class="button" onclick="get_results()" id="results_button"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></div>
                             </div>
                         </div>
-                        <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /></div>
+                        <div class="signature" style="text-align:center">
+                        	<img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /><br />
+                        </div>
                     </div>
                     <div style="clear:both"></div>
             	</div>   
@@ -230,12 +235,6 @@ the rest of the HTML is processed and the page load is complete, remove the line
           <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
           <script src="js/plugins.js"></script>
           <script src="js/main.js"></script>
-          <script>
-			
-			
-			
-		  </script>
-      
 		  
 		
          
