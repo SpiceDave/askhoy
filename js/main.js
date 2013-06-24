@@ -59,6 +59,18 @@ jQuery(document).ready(function(){
 			data: ddFilter,
 			selectText: "All related products"
 		});
+		
+		//fix z-index issue with custom drop-downs in ie7
+		if (navigator.appVersion.indexOf("MSIE 7.") != -1){
+		   var zIndexNumber = 1000;
+		   // Put your target element(s) in the selector below!
+		   $('.my-text-field').each(function() {
+			   $(this).css({'zIndex': zIndexNumber,'position':'relative'});
+			   zIndexNumber -= 10;
+		   });
+		}
+
+
 		//bind behaviour to the filter button
 		$('#filter-dd').find('.dd-option').click(function(){
 			var filterChoice = jQuery(this).find('input').val();
@@ -592,7 +604,7 @@ function showProducts(){
 			 var p = php_data[3].replace(/\[/g,"<");
 			 p = p.replace(/\]/g,">");
 			 
-			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more"><a href="javascript:moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></a></div></div></div>';
+			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more button" onclick="moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" height="17" width="103" /></div></div></div>';
 			 
 			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
 			 

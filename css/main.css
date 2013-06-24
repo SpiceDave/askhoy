@@ -103,6 +103,10 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.button{
+	cursor:pointer;
+}
+
 #black-bit{
 	background-color:#000;
 	position:absolute;
@@ -327,7 +331,8 @@ textarea {
 }
 #slider{
 	width:870px;
-	overflow:hidden;
+	overflow-x:hidden;
+	position:relative;
 	margin: 0 auto;
 }
 .bread-crumb-thumb{

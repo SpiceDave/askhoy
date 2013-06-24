@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <!--[if lt IE 9]><link rel="stylesheet" href="css/lt-ie9.css"> <![endif]-->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -183,7 +184,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                                 </div>
                             </div>
                             <div class="col span_1_of_2">
-                                <div id="results_button" class=""><a href="javascript: get_results()"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></a></div>
+                                <div class="button" onclick="get_results()" id="results_button" class=""><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></div>
                             </div>
                         </div>
                         <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /></div>

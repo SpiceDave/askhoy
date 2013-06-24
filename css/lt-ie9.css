@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+input{
+	margin-top:15px;
+	margin-bottom:-15px;
+}
+
+#c-content{
+	height:240px;
+}
