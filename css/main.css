@@ -326,7 +326,7 @@ textarea {
 }
 #navigation{
 	position:relative;
-	top:-175px;
+	top:-160px;
 	height:71px;
 }
 #slider{
@@ -342,6 +342,7 @@ textarea {
 	color:black;
 	font-weight:bold;
 	font-size:0.9em;
+	padding:0 10px 0 10px;
 }
 
 /*overlay*/
@@ -470,8 +471,12 @@ textarea {
 	#carousel{
 		background:none;
 	}
-	.signature{
-		margin-top: -100px;
+
+	#form{
+		margin:0 10px 0 10px;
+	}
+	#navigation{
+		top:-255px;
 	}
 }
 @media only screen and (max-width: 610px) {
@@ -489,9 +494,6 @@ textarea {
 		padding-right:30px;
 	}
 
-	#navigation{
-		top:-235px;
-	}
 }
 
 
@@ -615,8 +617,9 @@ textarea {
 		background-color:gray;
 	}
 	#results_button {
-		float: none;
+		float:none;
 		padding:10px;
+		text-align:center;
 	}
 }
 

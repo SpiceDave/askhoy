@@ -314,6 +314,7 @@ function tailor_results(){
 	else
 	{
 		jQuery('.signature, .dsh').show();
+		jQuery('.signature').css('margin-top','-70px');
 	}
 	jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').show();
 	
