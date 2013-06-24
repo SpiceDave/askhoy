@@ -685,7 +685,7 @@ function doCarousel(){
 *******************************************************************************************/
 function moreInfo(id){
 	//pop up the light box
-	if(jQuery(document).width() > 750)
+	if(jQuery(document).width() > 750 && jQuery(window).height() > 515)
 	{
 		jQuery('#overlay-main').html(overlay_html[id]);
 		jQuery('.black_overlay, #overlay-main').fadeIn("slow");
