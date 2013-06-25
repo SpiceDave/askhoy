@@ -477,6 +477,9 @@ textarea {
 	#carousel{
 		background:none;
 	}
+	.carousel-more{
+		margin: 0 auto;
+	}
 	.carousel-more img{
 		width:138px;
 	}
