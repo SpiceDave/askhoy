@@ -98,13 +98,26 @@ jQuery(document).ready(function(){
 	/******************************************************************************************
 	*
 	* function to set the height of the video player, and reset the carousel
+	* also other general non css responsiveness
 	*
 	*******************************************************************************************/
 	$(window).resize(function() {
 		$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 		setHeaderHeight();
 		doCarousel(noOfProducts);
+		
+		if(jQuery(document).width() < 610)
+		{
+			jQuery('#fb-footer').attr('coords','125,15,149,42');
+			jQuery('#tw-footer').attr('coords','97,15,122,41');
+		}
+		else
+		{
+			jQuery('#fb-footer').attr('coords','102,19,126,42');
+			jQuery('#tw-footer').attr('coords','77,19,99,42');
+		}
 	});
+	
 	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
 	setHeaderHeight();
 	//also set the header height to compensate...
@@ -131,6 +144,14 @@ jQuery(document).ready(function(){
 		jQuery('#fb-footer').attr('coords','125,15,149,42');
 		jQuery('#tw-footer').attr('coords','97,15,122,41');
 	}
+	else
+	{
+		jQuery('#fb-footer').attr('coords','102,19,126,42');
+		jQuery('#tw-footer').attr('coords','77,19,99,42');
+	}
+	
+	
+	
 	jQuery('.twitter-share, .facebook-share').click(function(){
 		if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-top')
 		{
