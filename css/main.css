@@ -323,6 +323,12 @@ textarea {
 }
 .carousel-more{
 	padding-left:5px;
+	width:103px;
+	height:auto;
+}
+.carousel-more img{
+	width:103px;
+	height:auto;
 }
 #navigation{
 	position:relative;
@@ -411,7 +417,7 @@ textarea {
 .overlay-bullets{
 	font-size: 0.8em;
 	color: #373737;
-	padding: 0px 0 10px 40px;
+	padding: 0px 60px 10px 40px;
 }
 .overlay-more{
 	padding-left:60px;
@@ -471,12 +477,24 @@ textarea {
 	#carousel{
 		background:none;
 	}
+	.carousel-more img{
+		width:138px;
+	}
+	.carousel-image{
+		height:200px;
+		width:auto;
+		float:none;
+	}
+	.carousel-bullets
+	{
+		width:290px;
+	}
 
 	#form{
 		margin:0 10px 0 10px;
 	}
 	#navigation{
-		top:-255px;
+		top:-380px;
 	}
 }
 @media only screen and (max-width: 610px) {
@@ -490,8 +508,8 @@ textarea {
 	{
 		width:202px;
 		height:auto;
-		padding-left:30px;
-		padding-right:30px;
+		padding-left:60px;
+		padding-right:60px;
 	}
 
 }
