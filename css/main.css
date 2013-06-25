@@ -21,10 +21,10 @@ textarea {
 	height:46px;
 	padding-left:10px;
 	color:#787474;
-	font-size:0.9em;
 	font-weight:bold;
 	max-height:42px;
 }
+input[type='text'],textarea {font-size:1em;}
 
 body {
     font-size: 1em;
