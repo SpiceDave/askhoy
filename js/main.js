@@ -53,12 +53,13 @@ jQuery(document).ready(function(){
 	var ddFilter = [
 			{ text: "Preparation Products", value: 1 },
 			{ text: "Performance Products", value: 2 },
-			{ text: "Recovery products", value: 3 }
+			{ text: "Recovery Products", value: 3 },
+			{ text: "All Related Products", value: 4 }
 		];
 		
 		$('#ddFilter').ddslick({
 			data: ddFilter,
-			selectText: "All related products"
+			selectText: "All Related Products"
 		});
 		
 		//fix z-index issue with custom drop-downs in ie7
@@ -85,6 +86,9 @@ jQuery(document).ready(function(){
 					break;
 				case '3':
 					getOtherTopic('Recovery');
+				case '4':
+					getOtherTopic('Preparation, Perfomance and Recovery');
+
 			}
 		});
 		
