@@ -191,7 +191,8 @@ the rest of the HTML is processed and the page load is complete, remove the line
                             </div>
                         </div>
                         <div class="signature" style="text-align:center">
-                        	<img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /><br />
+                        	<p><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE" /><br />
+                      	  </p>
                         </div>
                     </div>
                     <div style="clear:both"></div>

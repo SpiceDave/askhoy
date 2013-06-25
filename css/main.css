@@ -332,8 +332,8 @@ textarea {
 }
 #navigation{
 	position:relative;
-	top:-160px;
-	height:71px;
+	margin-top:-160px;
+	height:220px;
 }
 #slider{
 	width:870px;
@@ -348,7 +348,7 @@ textarea {
 	color:black;
 	font-weight:bold;
 	font-size:0.9em;
-	padding:0 10px 0 10px;
+	padding:20px 60px 10px 60px;
 }
 
 /*overlay*/
@@ -472,13 +472,15 @@ textarea {
 	.sm-h-ds{
 		display:block;
 		 margin:0 auto;
-		 padding: 30px 0 30px;
+		 padding: 20px 0 20px;
 	}
 	#carousel{
 		background:none;
 	}
 	.carousel-more{
 		margin: 0 auto;
+		padding-left:60px;
+		padding-top:10px;
 	}
 	.carousel-more img{
 		width:138px;
@@ -497,7 +499,8 @@ textarea {
 		margin:0 10px 0 10px;
 	}
 	#navigation{
-		top:-380px;
+		margin-top:-380px;
+		height:350px;
 	}
 }
 @media only screen and (max-width: 610px) {

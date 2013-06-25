@@ -4,6 +4,7 @@
 *
 *******************************************************************************************/
 var noOfProducts;//now global so that it can be used by resize function
+var page = 1;
 
 jQuery(document).ready(function(){
 
@@ -116,6 +117,18 @@ jQuery(document).ready(function(){
 			jQuery('#fb-footer').attr('coords','102,19,126,42');
 			jQuery('#tw-footer').attr('coords','77,19,99,42');
 		}
+		
+		if(jQuery('#slider').width() == 290 && page == 2)
+		{
+			jQuery('.signature').hide();
+		}
+		else
+		{
+			jQuery('.signature, .dsh').show();
+		}
+		
+		
+		
 	});
 	
 	$('#video-main').height(jQuery('#video-main').width()/1.797323135755258);
@@ -325,10 +338,11 @@ function get_results(){
 *******************************************************************************************/
 	
 function tailor_results(){
-	
+	page = 2;
 	jQuery('#form').hide();
 	jQuery('#carousel, dsh').show();
-	if(jQuery(document).width() < 610)
+	
+	if(jQuery('#slider').width() == 290 && page == 2)
 	{
 		jQuery('.signature').hide();
 	}
@@ -337,6 +351,10 @@ function tailor_results(){
 		jQuery('.signature, .dsh').show();
 		jQuery('.signature').css('margin-top','-70px');
 	}
+	
+	
+	
+	
 	jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').show();
 	
 	//set the correct background header image
