@@ -87,6 +87,18 @@ jQuery(document).ready(function(){
 					getOtherTopic('Recovery');
 			}
 		});
+		
+		var buttonName = '';
+		jQuery('.swap').hover(function(){
+			buttonName = jQuery(this).attr('src');
+			
+			newName =  buttonName.replace('.jpg','-over.jpg');
+			
+			jQuery(this).attr('src', newName);
+			
+			},function(){
+				jQuery(this).attr('src', buttonName);
+		});
 	/******************************************************************************************
 	*
 	* for the gender and optin checkboxes toggling
