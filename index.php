@@ -28,7 +28,7 @@
             	
                 <div id="logo-share" class="content-inner" >
                 	<div id="black-bit"></div>
-                	<div id="logo"></div>
+                	<div id="logo" class="button" onClick="window.open('http://www.scienceinsport.com/', '_blank')"></div>
                     <div id="share" style="position:relative">
                     	<div id="tw-top" class="twitter-share"></div>
                         <div id="fb-top" class="facebook-share"></div>
@@ -82,7 +82,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
             <div id="trim" class="content-layer" ></div>
             <div id="app" class="content-layer">
                 <div class="content-inner" style="padding:10px; text-align:center">
-                	<div class="message" style="margin: 0 auto">Hello.<br />if you'd like me to talk you through the right nutrition for you, just enter your details below.</div>   
+                	<div class="message" style="margin: 0 auto">Hello. If you'd like me to talk through the right nutrition for you, just enter your details below.</div>   
                     <div id="sub-message" style="margin: 0 auto"></div>
                     
                     <div id="filter-dd" style="display:none">
@@ -203,7 +203,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
             <footer>
                 <div id="footer" class="content-layer" align="center">
                     <div class="content-inner">
-                        <div class="footer-logo"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></div>
+                        <div class="footer-logo"><a href="http://www.scienceinsport.com/" target="_blank"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></a></div>
                         <div class="tandc">
                         	<a href="http://www.scienceinsport.com/terms-and-conditions/"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="27"/></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
