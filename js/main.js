@@ -94,6 +94,7 @@ jQuery(document).ready(function(){
 			}
 		});
 		
+		//rollover image swaps
 		var buttonName = '';
 		jQuery('.swap').hover(function(){
 			buttonName = jQuery(this).attr('src');
@@ -105,6 +106,10 @@ jQuery(document).ready(function(){
 			},function(){
 				jQuery(this).attr('src', buttonName);
 		});
+		//nav button rollover fades
+		{
+			jQuery('.nav_btn').hover(function(){jQuery(this).clearQueue().animate({opacity: 0.2}, 200)}, function(){jQuery(this).animate({opacity: 1}, 200)});
+		}
 	/******************************************************************************************
 	*
 	* for the gender and optin checkboxes toggling
@@ -825,7 +830,6 @@ function goToSiS(uid,pid,hlink){
 *******************************************************************************************/
 function getOtherTopic(newtopic)
 {
-	//$("html, body").animate({ scrollTop: 0 }, "slow");
 	topic = newtopic;
 	//redo the output
 	tailor_results();
@@ -839,25 +843,9 @@ function getOtherTopic(newtopic)
 
 var player;  
 var modVP;
-
-/*var nextVideo = 0; 
-var videos = new Array(1754276221001,1756137891001,1754276206001,1754276205001,1754234236001);*/    
+ 
 function myTemplateLoaded(experienceID) {  
 	player = brightcove.api.getExperience(experienceID);   
 	modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER); 
 }  
 
-/* remove this stub */
-/*jQuery('#trim').click(function(){
-	products_list = '1,2,3';
-	showProducts();
-	modVP.loadVideoByReferenceID(2);*/
-	/*modVP.addEventListener(brightcove.api.events.MediaEvent.BEGIN, onMediaBegin);   
-	modVP.addEventListener(brightcove.api.events.MediaEvent.COMPLETE, onMediaComplete);*/
-/*});*/
-/*function onMediaBegin(evt) {    
-	 alert('video beginning');  
-}
-function onMediaComplete(evt) {    
-	 alert('video complete');  
-}*/

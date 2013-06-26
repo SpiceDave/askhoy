@@ -18,7 +18,7 @@
 	else
 	{
 		str_replace($healthy, $yummy, $phrase);
-		$query = "SELECT * FROM `tbl_product` WHERE `product_id` IN ($products_list);";
+		$query = "SELECT * FROM `tbl_product` WHERE `product_id` IN ($products_list) ORDER BY `product_order` ASC;";
 
 		if ($result = mysqli_query($con, $query)) 
 		{
