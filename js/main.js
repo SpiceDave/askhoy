@@ -5,6 +5,7 @@
 *******************************************************************************************/
 var noOfProducts;//now global so that it can be used by resize function
 var page = 1;
+var count = 0;
 
 jQuery(document).ready(function(){
 
@@ -138,6 +139,7 @@ jQuery(document).ready(function(){
 		if(jQuery('#slider').width() == 290 && page == 2)
 		{
 			jQuery('.signature').hide();
+			jQuery('#carousel').css({'background':'none'});
 		}
 		else
 		{
@@ -458,161 +460,166 @@ function tailor_results(){
 	/**
 	* get the appropriate video
 	**/
-	if(sport == 'Cycling')
+	
+	if(count == 0)//only play the video once
 	{
-		//do the Cycling stuff
-		if(duration == 'Short')
+		count++;
+		if(sport == 'Cycling')
 		{
-			//do Short duration stuff
-			if(topic == 'Preparation')
+			//do the Cycling stuff
+			if(duration == 'Short')
 			{
-				//Preparation
-				modVP.loadVideoByReferenceID(1);
-				
+				//do Short duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(1);
+					
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(2);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(3);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(4);
+				}
 			}
-			else if(topic == 'Performance')
+			else if(duration == 'Long')
 			{
-				//Performance
-				modVP.loadVideoByReferenceID(2);
+				//do Long duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(5);
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(2);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(6);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(7);
+				}
 			}
-			else if(topic == 'Recovery')
+			
+		}
+		else if(sport == 'Running')
+		{
+			//do the running stuff
+			if(duration == 'Short')
 			{
-				//Recovery
-				modVP.loadVideoByReferenceID(3);
+				//do Short duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(8);
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(9);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(10);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(11);
+				}
 			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
+			else if(duration == 'Long')
 			{
-				//all three
-				modVP.loadVideoByReferenceID(4);
+				//do Long duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(12);
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(9);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(13);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(14);
+				}
 			}
 		}
-		else if(duration == 'Long')
+		else if(sport == 'Triathlon')
 		{
-			//do Long duration stuff
-			if(topic == 'Preparation')
+			//do the tri stuff
+			if(duration == 'Short')
 			{
-				//Preparation
-				modVP.loadVideoByReferenceID(5);
+				//do Short duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(15);
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(16);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(17);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(18);
+				}
 			}
-			else if(topic == 'Performance')
+			else if(duration == 'Long')
 			{
-				//Performance
-				modVP.loadVideoByReferenceID(2);
-			}
-			else if(topic == 'Recovery')
-			{
-				//Recovery
-				modVP.loadVideoByReferenceID(6);
-			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
-			{
-				//all three
-				modVP.loadVideoByReferenceID(7);
-			}
-		}
-		
-	}
-	else if(sport == 'Running')
-	{
-		//do the running stuff
-		if(duration == 'Short')
-		{
-			//do Short duration stuff
-			if(topic == 'Preparation')
-			{
-				//Preparation
-				modVP.loadVideoByReferenceID(8);
-			}
-			else if(topic == 'Performance')
-			{
-				//Performance
-				modVP.loadVideoByReferenceID(9);
-			}
-			else if(topic == 'Recovery')
-			{
-				//Recovery
-				modVP.loadVideoByReferenceID(10);
-			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
-			{
-				//all three
-				modVP.loadVideoByReferenceID(11);
-			}
-		}
-		else if(duration == 'Long')
-		{
-			//do Long duration stuff
-			if(topic == 'Preparation')
-			{
-				//Preparation
-				modVP.loadVideoByReferenceID(12);
-			}
-			else if(topic == 'Performance')
-			{
-				//Performance
-				modVP.loadVideoByReferenceID(9);
-			}
-			else if(topic == 'Recovery')
-			{
-				//Recovery
-				modVP.loadVideoByReferenceID(13);
-			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
-			{
-				//all three
-				modVP.loadVideoByReferenceID(14);
-			}
-		}
-	}
-	else if(sport == 'Triathlon')
-	{
-		//do the tri stuff
-		if(duration == 'Short')
-		{
-			//do Short duration stuff
-			if(topic == 'Preparation')
-			{
-				//Preparation
-				modVP.loadVideoByReferenceID(15);
-			}
-			else if(topic == 'Performance')
-			{
-				//Performance
-				modVP.loadVideoByReferenceID(16);
-			}
-			else if(topic == 'Recovery')
-			{
-				//Recovery
-				modVP.loadVideoByReferenceID(17);
-			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
-			{
-				//all three
-				modVP.loadVideoByReferenceID(18);
-			}
-		}
-		else if(duration == 'Long')
-		{
-			//do Long duration stuff
-			if(topic == 'Preparation')
-			{
-				//Preparation
-				modVP.loadVideoByReferenceID(19);
-			}
-			else if(topic == 'Performance')
-			{
-				//Performance
-				modVP.loadVideoByReferenceID(16);
-			}
-			else if(topic == 'Recovery')
-			{
-				//Recovery
-				modVP.loadVideoByReferenceID(20);
-			}
-			else if(topic == 'Preparation, Perfomance and Recovery')
-			{
-				//all three
-				modVP.loadVideoByReferenceID(21);
+				//do Long duration stuff
+				if(topic == 'Preparation')
+				{
+					//Preparation
+					modVP.loadVideoByReferenceID(19);
+				}
+				else if(topic == 'Performance')
+				{
+					//Performance
+					modVP.loadVideoByReferenceID(16);
+				}
+				else if(topic == 'Recovery')
+				{
+					//Recovery
+					modVP.loadVideoByReferenceID(20);
+				}
+				else if(topic == 'Preparation, Perfomance and Recovery')
+				{
+					//all three
+					modVP.loadVideoByReferenceID(21);
+				}
 			}
 		}
 	}
@@ -708,8 +715,23 @@ function doCarousel(){
 		jQuery('#slider').width('870');
 		jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
 	}*/
+	if(noOfProducts == 2 && jQuery('#slider').width() == 870)
+	{
+		jQuery('#c-content').css({'margin':'0 auto'});
+		jQuery('#carousel').css({'background':'none'});
+	}
+	else if(jQuery('#slider').width() == 870)
+	{
+		jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
+	}
+	else
+	{
+		jQuery('#c-content').css({'margin':'auto'});
+	}
+
 	
 	var swidth = jQuery('#slider').width();
+	console.log(swidth);
 	
 	//show the more button if there are more products to show
 	if((noOfProducts > 3 && swidth == 870) || ( noOfProducts > 1 && swidth == 290))
@@ -803,7 +825,7 @@ function goToSiS(uid,pid,hlink){
 *******************************************************************************************/
 function getOtherTopic(newtopic)
 {
-	$("html, body").animate({ scrollTop: 0 }, "slow");
+	//$("html, body").animate({ scrollTop: 0 }, "slow");
 	topic = newtopic;
 	//redo the output
 	tailor_results();
