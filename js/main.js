@@ -425,7 +425,7 @@ function tailor_results(){
 	
 	else if(topic == 'Performance')
 	{
-		products_list = '7,8,3,9';
+		products_list = '7,4,8,3,9';
 	}
 	
 	else if(topic == 'Recovery')
