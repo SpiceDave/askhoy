@@ -187,7 +187,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                                 </div>
                             </div>
                             <div class="col span_1_of_2">
-                                <div class="button" onclick="get_results()" id="results_button"><img src="img/page/results_btn.gif" height="48" width="221" alt="Get Results" /></div>
+                                <div class="button" onclick="get_results()" id="results_button"><img class="swap" src="img/page/results_btn.jpg" height="48" width="221" alt="Get Results" /></div>
                             </div>
                         </div>
                         <div class="signature" style="text-align:center">
@@ -205,7 +205,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     <div class="content-inner">
                         <div class="footer-logo"><a href="http://www.scienceinsport.com/" target="_blank"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></a></div>
                         <div class="tandc">
-                        	<a href="http://www.scienceinsport.com/terms-and-conditions/"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="27"/></a>
+                        	<a href="http://www.scienceinsport.com/terms-and-conditions/"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="24"/></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
                             <a href="http://www.scienceinsport.com/privacy-policy/"><img src="img/page/p-policy.gif" alt="Privacy Policy" height="19" width="60" /></a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
