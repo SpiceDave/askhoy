@@ -48,22 +48,50 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
 -->
 
 <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<script>
 
-<object id="myExperience2478511886001" class="BrightcoveExperience">
-  <param name="bgcolor" value="#FFFFFF" />
-  <param name="width" value="100%" />
-  <param name="height" value="100%" />
-  <param name="playerID" value="2478394970001" />
-  <param name="playerKey" value="AQ~~,AAACOMxQr4E~,fH8UUWnkLZ4XJ_7s0MSCvF3ncOf-V7B_" />
-  <param name="isVid" value="true" />
-  <param name="isUI" value="true" />
-  <param name="dynamicStreaming" value="true" />
-  
-  <param name="@videoPlayer" value="2478511886001" />
-  <param name="includeAPI" value="true" />   
-  <param name="templateLoadHandler" value="myTemplateLoaded" />   
-  <param name="templateReadyHandler" value="onTemplateReady" /> 
-</object>
+if (navigator.appName == 'Microsoft Internet Explorer')
+{
+	
+	document.write('<object id="myExperience2478511886001" class="BrightcoveExperience">'+
+	  '<param name="bgcolor" value="#FFFFFF" />' +
+	  '<param name="width" value="928px" />' +
+	  '<param name="height" value="524px" />' +
+	  '<param name="playerID" value="2478394970001" />' +
+	  '<param name="playerKey" value="AQ~~,AAACOMxQr4E~,fH8UUWnkLZ4XJ_7s0MSCvF3ncOf-V7B_" />' +
+	  '<param name="isVid" value="true" />' +
+	  '<param name="isUI" value="true" />' +
+	  '<param name="dynamicStreaming" value="true" />' +
+	  
+	  '<param name="@videoPlayer" value="2478511886001" />' +
+	  '<param name="includeAPI" value="true" />' +   
+	  '<param name="templateLoadHandler" value="myTemplateLoaded" />'  + 
+	  '<param name="templateReadyHandler" value="onTemplateReady" />' +
+	'</object>');
+}
+else
+{
+	document.write('<object id="myExperience2478511886001" class="BrightcoveExperience">'+
+	  '<param name="bgcolor" value="#FFFFFF" />' +
+	  '<param name="width" value="100%" />' +
+	  '<param name="height" value="100%" />' +
+	  '<param name="playerID" value="2478394970001" />' +
+	  '<param name="playerKey" value="AQ~~,AAACOMxQr4E~,fH8UUWnkLZ4XJ_7s0MSCvF3ncOf-V7B_" />' +
+	  '<param name="isVid" value="true" />' +
+	  '<param name="isUI" value="true" />' +
+	  '<param name="dynamicStreaming" value="true" />' +
+	  
+	  '<param name="@videoPlayer" value="2478511886001" />' +
+	  '<param name="includeAPI" value="true" />' +   
+	  '<param name="templateLoadHandler" value="myTemplateLoaded" />'  + 
+	  '<param name="templateReadyHandler" value="onTemplateReady" />' +
+	'</object>');
+}
+
+</script>
+
+
+
 
 <!-- 
 This script tag will cause the Brightcove Players defined above it to be created as soon

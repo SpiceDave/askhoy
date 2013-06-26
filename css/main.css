@@ -333,7 +333,7 @@ textarea {
 	height:auto;
 }
 #navigation{
-	position:relative;
+	/*position:relative;*/
 	margin-top:-160px;
 	height:220px;
 }
