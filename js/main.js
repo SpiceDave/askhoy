@@ -86,6 +86,7 @@ jQuery(document).ready(function(){
 					break;
 				case '3':
 					getOtherTopic('Recovery');
+					break;
 				case '4':
 					getOtherTopic('Preparation, Perfomance and Recovery');
 
@@ -411,12 +412,12 @@ function tailor_results(){
 	{
 		if(duration == 'Short')
 		{
-			products_list = '1,2,4';
+			products_list = '1,2,4,9';
 			
 		}
 		else if (duration =='Long')
 		{
-			products_list = '1,2,4,5,6';
+			products_list = '1,2,4,5,6,9';
 		}
 	}
 	
