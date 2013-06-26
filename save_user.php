@@ -26,7 +26,8 @@
 		{
 		  die('Error: ' . mysqli_error($con));
 		}
-		echo $name.', below is your personal nutrition guide, including more information on the products I’ve just mentioned.|'.mysqli_insert_id($con);
+		$firstName = explode(" ", $name);
+		echo $firstName[0].', below is your personal nutrition guide, including more information on the products I’ve just mentioned.|'.mysqli_insert_id($con);
 	}
 
 	
