@@ -28,7 +28,7 @@
             	
                 <div id="logo-share" class="content-inner" >
                 	<div id="black-bit"></div>
-                	<div id="logo" class="button" onClick="window.open('http://www.scienceinsport.com/', '_blank')"></div>
+                	<div id="logo" class="button" onClick="window.open('http://askhoy.com/', '_blank')"></div>
                     <div id="share" style="position:relative">
                     	<div id="tw-top" class="twitter-share"></div>
                         <div id="fb-top" class="facebook-share"></div>
