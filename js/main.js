@@ -273,7 +273,7 @@ function get_results(){
 	/* save the record */
 	
 	//get the user values
-	name = jQuery('#name-txt').val();
+	name = String(jQuery('#name-txt').val());
 	email = jQuery('#email-txt').val();
 	
 	//get the gender according to visiblity of elements
@@ -326,6 +326,20 @@ function get_results(){
 		optin = 'no';
 	}
 	
+ 
+
+    if(name == 'What\'s your name?')
+	{
+		alert('Please fill in your name');
+        return false;
+    }
+	else
+	{
+		name = name.replace(/[^a-zA-Z 0-9-]/g, '');
+		console.log(name);
+	}
+	
+	
 	if (check_email(email))
 	{
 		//post the values to the server for writing to db
@@ -351,6 +365,7 @@ function get_results(){
 	{
 		alert('Email address given is not valid. Please re-enter.');
 	}
+	
 }
 
 /******************************************************************************************
@@ -641,8 +656,7 @@ function check_email(address){
 	var mailFilter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if(!(mailFilter.test(address)))
 	{
-		jQuery('.errorEmail').text('*Invalid email address');
-		jQuery('.errorEmailConfirm').text('*Invalid email address'), isValid = false;
+		isValid = false;
 	}
 	if(!isValid)
 	{
@@ -653,6 +667,7 @@ function check_email(address){
 		return true;
 	}
 }
+
 
 /******************************************************************************************
 *
