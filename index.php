@@ -9,6 +9,11 @@
         <title>Ask Hoy</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        
+        <meta property="og:url" content="http://askhoy.com/" />
+        <meta property="og:image" content="http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg" />
+        <meta property="og:title" content="Ask Hoy" />
+        <meta property="og:description" content="Got a question about nutrition? Sir Chris will talk through the right nutrition for you." />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
