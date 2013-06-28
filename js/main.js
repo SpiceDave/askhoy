@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
 			{ text: "Preparation", value: 1 },
 			{ text: "Performance", value: 2 },
 			{ text: "Recovery", value: 3 },
-			{ text: "Preparation, Perfomance and Recovery", value: 4 }
+			{ text: "Preparation, Performance and Recovery", value: 4 }
 		];
 		
 		$('#ddTopic').ddslick({
@@ -89,7 +89,7 @@ jQuery(document).ready(function(){
 					getOtherTopic('Recovery');
 					break;
 				case '4':
-					getOtherTopic('Preparation, Perfomance and Recovery');
+					getOtherTopic('Preparation, Performance and Recovery');
 
 			}
 		});
@@ -193,12 +193,13 @@ jQuery(document).ready(function(){
 		if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-top')
 		{
 			//share on twitter (top link)
-			window.open('https://twitter.com/intent/tweet?text=Got a question about nutrition? Go to http://ASKHOY.com and Sir Chris will talk through the right nutrition for you. ' ,'_blank');
+			window.open('https://twitter.com/intent/tweet?text=Got a question about nutrition? Go to askhoy.com and Sir Chris will talk through the right nutrition for you.' ,'_blank');
+															   	
 		}
 		else if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-footer')
 		{
 			//share on twitter (bottom link)
-			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to http://ASKHOY.com and he\'ll do the same for you.  ' ,'_blank');
+			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to askhoy.com and he\'ll do the same for you.  ' ,'_blank');
 		}
 		
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
@@ -416,7 +417,7 @@ function tailor_results(){
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
 	}
-	if (originalTopic == 'Preparation, Perfomance and Recovery')
+	if (originalTopic == 'Preparation, Performance and Recovery')
 	{
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
 		jQuery('#filter-dd').show();
@@ -506,7 +507,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(3);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(4);
@@ -530,7 +531,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(6);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(7);
@@ -559,7 +560,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(10);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(11);
@@ -583,7 +584,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(13);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(14);
@@ -611,7 +612,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(17);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(18);
@@ -635,7 +636,7 @@ function tailor_results(){
 					//Recovery
 					modVP.loadVideoByReferenceID(20);
 				}
-				else if(topic == 'Preparation, Perfomance and Recovery')
+				else if(topic == 'Preparation, Performance and Recovery')
 				{
 					//all three
 					modVP.loadVideoByReferenceID(21);
