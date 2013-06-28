@@ -140,7 +140,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     </div>
                     <div id='hor-ds'><img style="margin-top:-40px" src="img/page/h-ds-car.png"  height="14" /></div>
                     <div class="signature" style="text-align:center"><img src="img/page/sir-chris-hoy.gif" height="99" width="122" alt="Sir Chris Hoy, MBE"></div>
-                    <div class="sub-footer-text" style="text-align:center">Find out more about nutrition and invite your friends to Ask Hoy</div>
+                    <div class="sub-footer-text" style="text-align:center">Find out more about nutrition and invite your friends to Ask Hoy.</div>
                   	<div class="thumb-crumb" style="text-align:center">
                         <img onclick="getOtherTopic('Preparation');" class="bread-crumb-thumb swap button" id="preparation-thumb" src="img/page/preparation.jpg" alt="preparation" width="168" height="110" />
                         <img onclick="getOtherTopic('Performance');" class="bread-crumb-thumb swap button" id="performance-thumb" src="img/page/performance.jpg" alt="performance" width="168" height="110" />

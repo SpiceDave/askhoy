@@ -205,12 +205,12 @@ jQuery(document).ready(function(){
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
 		{
 			//share on facebook (top link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Got a question about nutrition%3F&p[summary]=Go to ASKHOY.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Got a question about nutrition%3F&p[summary]=Go to askkhoy.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
 		}
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-footer')
 		{
 			//share on facebook (bottom link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to http://ASKHOY.com and he\'ll do the same for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'!&p[summary]=Go to askhoy.com and he\'ll do the same for you.' ,'_blank', 'width=626,height=436');
 		}
 	});
 	
@@ -337,7 +337,6 @@ function get_results(){
 	else
 	{
 		name = name.replace(/[^a-zA-Z 0-9-]/g, '');
-		console.log(name);
 	}
 	
 	
@@ -421,7 +420,7 @@ function tailor_results(){
 	{
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
 		jQuery('#filter-dd').show();
-		jQuery('.sub-footer-text').text('Invite your friends to Ask Hoy');
+		jQuery('.sub-footer-text').text('Invite your friends to Ask Hoy.');
 	}
 	
 	//set the submessage text
@@ -482,9 +481,8 @@ function tailor_results(){
 	* get the appropriate video
 	**/
 	
-	if(count == 0)//only play the video once
+	if(count == 0)
 	{
-		count++;
 		if(sport == 'Cycling')
 		{
 			//do the Cycling stuff
@@ -511,6 +509,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(4);
+					count++;
 				}
 			}
 			else if(duration == 'Long')
@@ -535,6 +534,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(7);
+					count++;
 				}
 			}
 			
@@ -564,6 +564,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(11);
+					count++;
 				}
 			}
 			else if(duration == 'Long')
@@ -588,6 +589,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(14);
+					count++;
 				}
 			}
 		}
@@ -616,6 +618,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(18);
+					count++;
 				}
 			}
 			else if(duration == 'Long')
@@ -640,6 +643,7 @@ function tailor_results(){
 				{
 					//all three
 					modVP.loadVideoByReferenceID(21);
+					count++;
 				}
 			}
 		}
@@ -846,6 +850,10 @@ function goToSiS(uid,pid,hlink){
 *******************************************************************************************/
 function getOtherTopic(newtopic)
 {
+	if(count == 0)
+	{
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
 	topic = newtopic;
 	//redo the output
 	tailor_results();
