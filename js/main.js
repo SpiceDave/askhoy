@@ -95,18 +95,20 @@ jQuery(document).ready(function(){
 		});
 		
 		//rollover image swaps
-		 
 		var buttonName = '';
-		jQuery('.swap').hover(function(){
+		$('#app').on('mouseover', '.swap', function(e) {
 			buttonName = jQuery(this).attr('src');
-			
 			newName =  buttonName.replace('.jpg','-over.jpg');
-			
 			jQuery(this).attr('src', newName);
 			
-			},function(){
-				jQuery(this).attr('src', buttonName);
 		});
+		
+		$('#app').on('mouseout', '.swap', function(e) {
+			jQuery(this).attr('src', buttonName);
+			
+		});
+		 
+	
 		//nav button rollover fades
 		{
 			jQuery('.nav_btn').hover(function(){jQuery(this).clearQueue().animate({opacity: 0.2}, 200)}, function(){jQuery(this).animate({opacity: 1}, 200)});
