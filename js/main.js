@@ -205,7 +205,7 @@ jQuery(document).ready(function(){
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')
 		{
 			//share on facebook (top link)
-			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Got a question about nutrition%3F&p[summary]=Go to askkhoy.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
+			window.open('http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://askhoy.com/&p[images][0]=http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg&p[title]=Got a question about nutrition%3F&p[summary]=Go to askhoy.com and Sir Chris will talk through the right nutrition for you.' ,'_blank', 'width=626,height=436');
 		}
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-footer')
 		{
