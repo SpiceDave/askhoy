@@ -95,6 +95,7 @@ jQuery(document).ready(function(){
 		});
 		
 		//rollover image swaps
+		 
 		var buttonName = '';
 		jQuery('.swap').hover(function(){
 			buttonName = jQuery(this).attr('src');
@@ -434,18 +435,18 @@ function tailor_results(){
 	{
 		if(duration == 'Short')
 		{
-			products_list = '1,2,4,9';
+			products_list = '1,2,9,4';
 			
 		}
 		else if (duration =='Long')
 		{
-			products_list = '1,2,4,5,6,9';
+			products_list = '1,2,9,4,5,6';
 		}
 	}
 	
 	else if(topic == 'Performance')
 	{
-		products_list = '7,4,8,3,9';
+		products_list = '2,9,7,8,4';
 	}
 	
 	else if(topic == 'Recovery')
@@ -466,12 +467,12 @@ function tailor_results(){
 	{
 		if(duration == 'Short')
 		{
-			products_list = '1,2,4,7,8,3,9,10,12';
+			products_list = '1,2,4,7,8,9,10,12';
 			
 		}
 		else if (duration =='Long')
 		{
-			products_list = '1,2,4,5,6,7,8,3,9,11,13,14,15';
+			products_list = '1,2,4,5,6,7,8,9,11,13,15,14';
 		}
 	}
 	showProducts();
@@ -707,7 +708,7 @@ function showProducts(){
 			 var p = php_data[3].replace(/\[/g,"<");
 			 p = p.replace(/\]/g,">");
 			 
-			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more button" onclick="moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img src="img/page/more-info.png" alt="More information" title="MORE INFO" /></div></div></div>';
+			 carousel_html += '<div class="sis-product-container" id="'+ php_data[0] +'"><div class="carousel-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="rh-col"><div class="carousel-title">'+ title[0] +'</div><div class="carousel-bullets"><ul>'+ li +'</ul></div><div class="carousel-more button" onclick="moreInfo(\''+ php_data[0] +'\')" target="_blank" ><img class="swap" src="img/page/more-info.jpg" alt="More information" title="MORE INFO" /></div></div></div>';
 			 
 			 overlay_html[php_data[0]] = '<div class="sis-product-overlay" id="overlay-'+ php_data[0] +'"><div class="overlay-image"><img src="img/products/'+php_data[6]+'" title="'+ title[0] +'" alt="'+ title[0] +'"/></div><div class="product-full-copy"><div class="overlay-title">'+ title[0] +'</div><div class="overlay-subtitle">'+ php_data[2] +'</div><div class="product-details">Product Details</div><div class="product-description">'+p+'</div><div class="overlay-bullets"><ul>'+ li +'</ul></div><div style="cursor:pointer" class="overlay-more" onclick="goToSiS(\'' + user_id + '\',\''+ php_data[1] + '\',\''+ php_data[5] +'\')" target="_blank" ><img src="img/page/see-range.gif" alt="See full range" title="SEE FULL RANGE" height="32" width="196" /></div></div></div><div class="close-overlay" style="width:100px; height:60px; cursor:pointer; position:absolute; top:0px; right:0px"></div>';
 			 

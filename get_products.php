@@ -2,8 +2,9 @@
 	include '../config.php';
 	
 	
-	$products_list = $_POST['PRODUCTS_LIST'];
-	//$products_list = '15,3,1';
+	//$products_list = explode($_POST['PRODUCTS_LIST'], ',');
+	$products_list = explode(',',$_POST['PRODUCTS_LIST']);
+	
 	$size = $_POST['SIZE'];
 	
 
@@ -17,29 +18,32 @@
 	}
 	else
 	{
-		str_replace($healthy, $yummy, $phrase);
-		$query = "SELECT * FROM `tbl_product` WHERE `product_id` IN ($products_list) ORDER BY `product_order` ASC;";
-
-		if ($result = mysqli_query($con, $query)) 
+		for($i=0; $i<sizeof($products_list); $i++)
 		{
 
-			/* fetch associative array */
-			while ($row = mysqli_fetch_assoc($result)) 
+			$query = "SELECT * FROM `tbl_product` WHERE `product_id` = '$products_list[$i]'";
+	
+			if ($result = mysqli_query($con, $query)) 
 			{
-					$product_id = $row["product_id"];
-					$product_title = $row["product_title"];
-					$product_subtitle = $row["product_subtitle"];
-					$product_desc_html = $row["product_desc_html"];
-					$product_bullet_html = $row["product_bullet_html"];
-					$product_link = $row["product_link"];
-					$product_image = $row["product_image"];
-					$items = $product_id.'|'.$product_title.'|'.$product_subtitle.'|'.$product_desc_html.'|'.$product_bullet_html.'|'.$product_link.'|'.$product_image.'^';
-					
-					echo $items;
-		
+	
+				/* fetch associative array */
+				while ($row = mysqli_fetch_assoc($result)) 
+				{
+						$product_id = $row["product_id"];
+						$product_title = $row["product_title"];
+						$product_subtitle = $row["product_subtitle"];
+						$product_desc_html = $row["product_desc_html"];
+						$product_bullet_html = $row["product_bullet_html"];
+						$product_link = $row["product_link"];
+						$product_image = $row["product_image"];
+						$items = $product_id.'|'.$product_title.'|'.$product_subtitle.'|'.$product_desc_html.'|'.$product_bullet_html.'|'.$product_link.'|'.$product_image.'^';
+						
+						echo $items;
+			
+				}
+				/* free result set */
+				mysqli_free_result($result);
 			}
-			/* free result set */
-			mysqli_free_result($result);
 		}
 	}
 	$con->close();
