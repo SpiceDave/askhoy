@@ -202,13 +202,13 @@ jQuery(document).ready(function(){
 		if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-top')
 		{
 			//share on twitter (top link)
-			window.open('https://twitter.com/intent/tweet?text=Got a question about nutrition? Go to askhoy.com and Sir Chris will talk through the right nutrition for you.' ,'_blank');
+			window.open('https://twitter.com/intent/tweet?text=Got a question about nutrition? Go to askhoy.com and Sir Chris will talk through the right nutrition for you.&hashtags=AskHoy' ,'_blank');
 															   	
 		}
 		else if(this.className == 'twitter-share' && jQuery(this).attr('id') == 'tw-footer')
 		{
 			//share on twitter (bottom link)
-			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to askhoy.com and he\'ll do the same for you.  ' ,'_blank');
+			window.open('https://twitter.com/intent/tweet?text=Sir Chris Hoy just talked me through the right nutrition for '+ sport +'! Go to askhoy.com and he\'ll do the same for you.&hashtags=AskHoy' ,'_blank');
 		}
 		
 		else if(this.className == 'facebook-share' && jQuery(this).attr('id') == 'fb-top')

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Ask Hoy</title>
+        <title>Ask Hoy | Endurance Nutrition advice from Sir Chris Hoy | Science in Sport</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
