@@ -16,8 +16,8 @@
         <meta property="og:description" content="Got a question about nutrition? Sir Chris will talk through the right nutrition for you." />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
         <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
         <!--[if lt IE 9]><link rel="stylesheet" href="css/lt-ie9.css"> <![endif]-->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -237,19 +237,19 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 <div id="footer" class="content-layer" align="center">
                     <div class="content-inner">
                         <div class="footer-logo"><a href="http://www.scienceinsport.com/" target="_blank"><img src="img/page/footer-sis-logo.png" alt="Science in Sport" height="51" width="119" /></a></div>
-                        <div class="tandc">
-                        	<a href="http://www.scienceinsport.com/terms-and-conditions/"><img src="img/page/tandc.gif" alt="T&C'S" height="19" width="24"/></a>
+                        <div class="tandc footer-text">
+                        	<a href="http://www.scienceinsport.com/terms-and-conditions/">T&amp;Cs</a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="http://www.scienceinsport.com/privacy-policy/"><img src="img/page/p-policy.gif" alt="Privacy Policy" height="19" width="60" /></a>
+                            <a href="http://www.scienceinsport.com/privacy-policy/">Privacy Policy</a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="http://www.scienceinsport.com/faq/"><img src="img/page/c-services.gif" alt="Customer Services" height="19" width="84" /></a>
+                            <a href="http://www.scienceinsport.com/faq/">Customer Services</a>
                             <div id="br"><br /></div>
                             <img id="slash" src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="http://www.scienceinsport.com/sis-products/"><img src="img/page/p-range.gif" alt="Product Range" height="19" width="67" /></a>
+                            <a href="http://www.scienceinsport.com/sis-products/">Product Range</a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <a href="http://www.scienceinsport.com/about-sis/contact-sis/"><img src="img/page/contact-us.gif" alt="contact use" height="19" width="49" /></a>
+                            <a href="http://www.scienceinsport.com/about-sis/contact-sis/">Contact Us</a>
                             <img src="img/page/slash.gif" alt="" height="19" width="28" />
-                            <img src="img/page/copyright.gif" alt="©Copyright SiS 2013" height="19" width="94" />
+                            &copy;Copyright SiS 2013
 
                          </div>
                         <div class="bottom-line">Endurance nutrition. Without compromise.</div>

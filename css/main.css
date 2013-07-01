@@ -462,7 +462,15 @@ textarea {
 	display:none;
 }
 
-	
+.footer-text{
+	color:#7b7777; 
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+	font-weight:bold;
+}
+.footer-text a{
+	color:#7b7777; 
+	text-decoration:none;
+}
 
 
 /*ask hoy media queries */
