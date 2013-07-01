@@ -6,6 +6,7 @@
 var noOfProducts;//now global so that it can be used by resize function
 var page = 1;
 var count = 0;
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
 jQuery(document).ready(function(){
 
@@ -94,25 +95,30 @@ jQuery(document).ready(function(){
 			}
 		});
 		
+		if(!supportsTouch)
+		{
 		//rollover image swaps
-		var buttonName = '';
-		$('#app').on('mouseover', '.swap', function(e) {
-			buttonName = jQuery(this).attr('src');
-			newName =  buttonName.replace('.jpg','-over.jpg');
-			jQuery(this).attr('src', newName);
+			var buttonName = '';
+			$('#app').on('mouseover', '.swap', function(e) {
+				buttonName = jQuery(this).attr('src');
+				newName =  buttonName.replace('.jpg','-over.jpg');
+				jQuery(this).attr('src', newName);
+				
+			});
 			
-		});
-		
-		$('#app').on('mouseout', '.swap', function(e) {
-			jQuery(this).attr('src', buttonName);
+			$('#app').on('mouseout', '.swap', function(e) {
+				jQuery(this).attr('src', buttonName);
+				
+			});
 			
-		});
+			//nav button rollover fades
+			{
+				jQuery('.nav_btn').hover(function(){jQuery(this).clearQueue().animate({opacity: 0.2}, 200)}, function(){jQuery(this).animate({opacity: 1}, 200)});
+			}
+		}
 		 
 	
-		//nav button rollover fades
-		{
-			jQuery('.nav_btn').hover(function(){jQuery(this).clearQueue().animate({opacity: 0.2}, 200)}, function(){jQuery(this).animate({opacity: 1}, 200)});
-		}
+		
 	/******************************************************************************************
 	*
 	* for the gender and optin checkboxes toggling
