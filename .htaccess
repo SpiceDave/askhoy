@@ -543,4 +543,4 @@ FileETag None
 #    Header set Connection Keep-Alive
 # </IfModule>
 
-DirectoryIndex index.php index.html 
+# DirectoryIndex index.php index.html 
