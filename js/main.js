@@ -425,6 +425,12 @@ function tailor_results(){
 	{
 		jQuery('#header').css({'background-image':'url(../img/page/all-three-hdr.jpg)'});
 	}
+	
+	if(jQuery('#slider').width() == 290 )
+	{
+		jQuery('#header').css({'background-image':'url(../img/page/mobile-hdr.jpg)'});
+	}
+	
 	if (originalTopic == 'Preparation, Performance and Recovery')
 	{
 		jQuery('#preparation-thumb, #performance-thumb, #recovery-thumb').hide();
@@ -739,16 +745,7 @@ function doCarousel(){
 	var left = 0;
 	//restart the carousel
 	jQuery('#c-content').css({'left':'0'});
-	//just show the single version if there are only two products
-	/*if(noOfProducts == 2)
-	{
-		jQuery('#slider').width('290');
-		jQuery('#carousel').css({'background':'none'});
-	}
-	else if(jQuery('#carousel').css('background') != 'none'){
-		jQuery('#slider').width('870');
-		jQuery('#carousel').css({'background':'url(../img/page/grad-sep-bg.png) no-repeat'});
-	}*/
+	
 	if(noOfProducts == 2 && jQuery('#slider').width() == 870)
 	{
 		jQuery('#c-content').css({'margin':'0 auto'});

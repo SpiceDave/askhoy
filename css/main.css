@@ -131,7 +131,9 @@ textarea {
 #header{
 	height:546px;
 	background-image:url(../img/page/init-hdr.jpg);
-	background-color: #F7E600;	
+	background-repeat:no-repeat;
+	background-color: #F7E600;
+	background-position: center;
 }
 #trim{
 	border-top:#adadab 1px solid;
@@ -465,6 +467,9 @@ textarea {
 
 /*ask hoy media queries */
 @media only screen and (max-width: 60em) {
+	#header{
+		background-image:url(../img/page/mobile-hdr.jpg);
+	}
 	#slider{
 		width:290px;
 	}
@@ -525,6 +530,7 @@ textarea {
 
 
 @media only screen and (max-width: 480px) {
+	
 	
 
 	#video-inner{
