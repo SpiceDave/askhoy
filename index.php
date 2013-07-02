@@ -4,12 +4,13 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Ask Hoy | Endurance Nutrition advice from Sir Chris Hoy | Science in Sport</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        
+		<meta name="description" content="Ask Hoy - Sir Chris Hoy and Science in Sport provide endurance nutrition advice for Cyclists, Runners and Triathletes. What will Sir Chris Hoy suggest for you?">
+        <meta name="keywords" content="chris hoy youtube,great british cycling,sir chris hoy,olympic nutrition,nutrition advice,chris hoy facts,nutritional guidelines,nutrition program,nutrition,cycling nutrition,rowing,nutrition plan,triathlon diet,sports nutrition,training,running supplements,plan,triathlete diet,cycling supplements,sports supplements,sports nutrition,triathlon nutrition plan,discount supplements,nutrition for cyclists,protein supplements,gym supplements,fitness supplements,training supplements,triathlete diet,cyclist diet,first triathlon nutrition,pre workout supplements,post cycling nutrition,cycle nutrition">
         <meta property="og:url" content="http://askhoy.com/" />
         <meta property="og:image" content="http://askhoy.com/apple-touch-icon-144x144-precomposed.jpg" />
         <meta property="og:title" content="Ask Hoy" />
