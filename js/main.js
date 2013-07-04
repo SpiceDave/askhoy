@@ -368,6 +368,11 @@ function get_results(){
 			 user_id = php_data[1];
 			 //let's see the video
 			 $("html, body").animate({ scrollTop: 0 }, "slow");
+			 
+			 
+		
+			 jQuery('#tag2').html('<iframe src="tag2.html" width="1" height="1" frameborder="0" scrolling="No" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0"></iframe>');
+	
 		});
 	}
 	else
@@ -762,7 +767,6 @@ function doCarousel(){
 
 	
 	var swidth = jQuery('#slider').width();
-	console.log(swidth);
 	
 	//show the more button if there are more products to show
 	if((noOfProducts > 3 && swidth == 870) || ( noOfProducts > 1 && swidth == 290))
