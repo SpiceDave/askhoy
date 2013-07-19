@@ -159,18 +159,24 @@ the rest of the HTML is processed and the page load is complete, remove the line
                 <!-- end of carousel section -->
                  
                 <div id="form" style="display:block">
+                
+                
                     <div class="content-inner" style="max-width:740px;">
                         <div class="section group">
                             <div class="col span_1_of_2">
-                                <div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?" maxlength="50"></div>
+                                <div id="user_duration" class="my-text-field">
+                                    <div id="ddDuration" class="dd-container"></div>
+                                </div>
                             </div>
                             <div class="col span_1_of_2">
-                                <div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?" maxlength="255"></div>
+                                <div id="user_topic" class="my-text-field">
+                                    <div id="ddTopic" class="dd-container"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div style="clear:both"></div>
-                    
+                                     
                     <div class="content-inner" style="max-width:740px;">
                         <div class="section group">
                             <div class="col span_1_of_2">
@@ -194,21 +200,19 @@ the rest of the HTML is processed and the page load is complete, remove the line
                     </div>
                     <div style="clear:both"></div>
                     
+                    
                     <div class="content-inner" style="max-width:740px;">
                         <div class="section group">
                             <div class="col span_1_of_2">
-                                <div id="user_duration" class="my-text-field">
-                                    <div id="ddDuration" class="dd-container"></div>
-                                </div>
+                                <div id="user_name" class="my-text-field" style="border:1px #f8fb3c solid";><input id="name-txt" type="text" name="name" value="What's your name?" maxlength="50"></div>
                             </div>
                             <div class="col span_1_of_2">
-                                <div id="user_topic" class="my-text-field">
-                                    <div id="ddTopic" class="dd-container"></div>
-                                </div>
+                                <div id="user_email" class="my-text-field" style="border:1px #f8fb3c solid"><input id="email-txt" type="text" name="email" value="What's your email address?" maxlength="255"></div>
                             </div>
                         </div>
                     </div>
                     <div style="clear:both"></div>
+                    
                     
                     
                     <div class="content-inner" style="max-width:740px;">
