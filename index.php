@@ -117,7 +117,7 @@ the rest of the HTML is processed and the page load is complete, remove the line
             <div id="trim" class="content-layer" ></div>
             <div id="app" class="content-layer">
                 <div class="content-inner" style="padding:10px; text-align:center">
-                	<div class="message" style="margin: 0 auto">Hello. If you'd like me to talk through the right nutrition for you, just enter your details below.</div>   
+                	<div class="message" style="margin: 0 auto">Hello. If you'd like me to talk through the right nutrition for you, just give me a few details about your sport – you’ll get a personalised film as well as a guide to SiS nutrition.</div>   
                     <div id="sub-message" style="margin: 0 auto"></div>
                     
                     <div id="filter-dd" style="display:none">
